@@ -9,11 +9,13 @@ product-info {
   margin: 1rem 0 2rem;
   padding: 0.8rem 1.6rem;
   border-radius: 999px;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
-  background-color: transparent;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  background-color: rgba(var(--color-background), 0.96);
   color: rgb(var(--color-foreground));
   cursor: pointer;
-  transition: background-color var(--duration-default) ease, color var(--duration-default) ease;
+  box-shadow: 0 12px 28px rgba(var(--color-foreground), 0.12);
+  transition: background-color var(--duration-default) ease, color var(--duration-default) ease,
+    box-shadow var(--duration-default) ease, transform var(--duration-short) ease;
 }
 
 @keyframes wishlistButtonPop {
@@ -38,10 +40,40 @@ product-info {
 .product-page-wishlist-button .svg-wrapper {
   width: 1.6rem;
   height: 1.6rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--color-foreground), 0.08);
+  transition: background-color var(--duration-default) ease;
 }
 
+.product-page-wishlist-button svg path {
+  fill: currentColor;
+  transition: fill var(--duration-default) ease;
+}
+
+.product-page-wishlist-button:hover,
+.product-page-wishlist-button:focus-visible {
+  background-color: rgba(var(--color-foreground), 0.1);
+  box-shadow: 0 16px 32px rgba(var(--color-foreground), 0.18);
+  transform: translateY(-2px);
+}
+
+
 .product-page-wishlist-button.is-active {
-  background-color: rgba(var(--color-foreground), 0.05);
+  background-color: rgba(255, 77, 79, 0.18);
+  border-color: rgba(255, 77, 79, 0.4);
+  color: var(--wishlist-active-color, #ff4d4f);
+  box-shadow: 0 20px 38px rgba(255, 77, 79, 0.28);
+}
+
+.product-page-wishlist-button.is-active .svg-wrapper {
+  background-color: rgba(255, 77, 79, 0.15);
+}
+
+.product-page-wishlist-button.is-active svg path {
+  fill: currentColor;
 }
 
 .product {
