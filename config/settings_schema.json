@@ -1457,12 +1457,7 @@
         "label": "Mostrar botón Favoritos en tarjetas de producto",
         "default": true
       },
-      {
-        "type": "color_scheme",
-        "id": "wishlist_color_scheme",
-        "label": "Esquema de colores de Favoritos",
-        "default": "scheme-1"
-      }
+      
     ]
   }
 ]

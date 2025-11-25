@@ -13,7 +13,11 @@
     "social": {
       "alt_text": {
         "share_on_facebook": "Compartir en Facebook",
-        "share_on_twitter": "Compartir en X",
+      "settings": {
+        "show_wishlist": {
+          "label": "Mostrar botón Favoritos"
+        }
+      },
         "share_on_pinterest": "Guardar en Pinterest"
       },
       "links": {

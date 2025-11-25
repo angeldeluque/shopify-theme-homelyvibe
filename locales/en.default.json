@@ -286,6 +286,11 @@
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
+      "settings": {
+        "show_wishlist": {
+          "label": "Show wishlist button"
+        }
+      },
       "wishlist": "Wishlist",
       "wishlist_count": {
         "one": "{{ count }} item",
