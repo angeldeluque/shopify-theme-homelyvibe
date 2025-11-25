@@ -117,22 +117,24 @@
   }
 
   .wishlist-drawer.drawer {
-    z-index: 1100;
-    top: var(--header-height, 0px);
-    height: calc(100% - var(--header-height, 0px));
+    z-index: 99999;
   }
 
   .wishlist-drawer.active {
     visibility: visible;
   }
 
-  .wishlist-drawer .cart-drawer__overlay {
-    top: var(--header-height, 0px);
-    height: calc(100% - var(--header-height, 0px));
-  }
-
   body.wishlist-open {
     overflow: hidden;
+  }
+
+  /* Ensure the wishlist overlay and panel stack above the header and most UI layers */
+  .wishlist-drawer .cart-drawer__overlay {
+    z-index: 99990;
+  }
+
+  .wishlist-drawer .drawer__inner {
+    z-index: 99999;
   }
 
   .wishlist-drawer__contents {
