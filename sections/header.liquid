@@ -77,6 +77,16 @@
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
 
+  .header__icon--favorites.is-active svg path {
+    fill: currentColor;
+    stroke: currentColor;
+  }
+  
+  .header__icon--favorites svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
@@ -97,6 +107,7 @@
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   for block in section.blocks
@@ -234,17 +245,6 @@
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
-      <button
-        type="button"
-        class="header__icon header__icon--favorites link focus-inset"
-        aria-label="{{ 'general.favorite.toggle' | t | default: 'Toggle favorites' }}"
-        onclick="document.dispatchEvent(new CustomEvent('hv-toggle-favorites'))"
-      >
-        <span class="svg-wrapper">
-          {{ 'icon-heart.svg' | inline_asset_content }}
-        </span>
-      </button>
-
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -273,6 +273,17 @@
           </span>
         </a>
       {%- endif -%}
+
+      <button
+        type="button"
+        class="header__icon header__icon--favorites link focus-inset"
+        aria-label="{{ 'general.favorite.toggle' | t | default: 'Toggle favorites' }}"
+        onclick="document.dispatchEvent(new CustomEvent('hv-toggle-favorites'))"
+      >
+        <span class="svg-wrapper">
+          {{ 'icon-heart.svg' | inline_asset_content }}
+        </span>
+      </button>
 
       {%- for block in section.blocks -%}
         {%- case block.type -%}
