@@ -2,6 +2,29 @@ product-info {
   display: block;
 }
 
+.product-page-wishlist-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1rem 0 2rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  cursor: pointer;
+  transition: background-color var(--duration-default) ease, color var(--duration-default) ease;
+}
+
+.product-page-wishlist-button .svg-wrapper {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.product-page-wishlist-button.is-active {
+  background-color: rgba(var(--color-foreground), 0.05);
+}
+
 .product {
   margin: 0;
 }

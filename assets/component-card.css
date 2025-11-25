@@ -73,6 +73,38 @@
   background: transparent;
 }
 
+.card-wishlist-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--color-background), 0.9);
+  color: rgb(var(--color-foreground));
+  cursor: pointer;
+  transition: background-color var(--duration-default) ease, color var(--duration-default) ease;
+  z-index: 2;
+}
+
+.card-wishlist-button:hover,
+.card-wishlist-button:focus-visible {
+  background-color: rgba(var(--color-foreground), 0.1);
+}
+
+.card-wishlist-button.is-active {
+  color: rgb(var(--color-accent-1, var(--color-foreground)));
+}
+
+.card-wishlist-button .svg-wrapper {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
 .card .card__inner .card__media {
   overflow: hidden;
   /* Fix for Safari border bug on hover */

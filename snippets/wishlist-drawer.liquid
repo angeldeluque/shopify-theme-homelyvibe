@@ -1,0 +1,38 @@
+{% assign drawer_color_scheme = color_scheme | default: settings.cart_color_scheme %}
+
+<div class="wishlist-drawer drawer" data-wishlist-drawer>
+  <div class="cart-drawer wishlist-drawer__container" aria-hidden="true">
+    <div class="cart-drawer__overlay" data-wishlist-close></div>
+    <div
+      class="drawer__inner gradient color-{{ drawer_color_scheme }}"
+      role="dialog"
+      aria-modal="true"
+      aria-label="{{ 'general.wishlist.title' | t | default: 'Favoritos' }}"
+      tabindex="-1"
+      data-wishlist-panel
+    >
+      <div class="drawer__header">
+        <h2 class="drawer__heading">
+          {{ 'general.wishlist.title' | t | default: 'Tus favoritos' }}
+        </h2>
+        <button class="drawer__close" type="button" data-wishlist-close aria-label="{{ 'accessibility.close' | t }}">
+          <span class="svg-wrapper">
+            {{- 'icon-close.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      </div>
+
+      <div class="drawer__contents wishlist-drawer__contents">
+        <div class="wishlist-empty" data-wishlist-empty>
+          <p class="cart__empty-text">
+            {{ 'general.wishlist.empty' | t | default: 'Aun no has guardado productos en favoritos.' }}
+          </p>
+          <a class="button" href="{{ routes.all_products_collection_url }}" data-wishlist-close>
+            {{ 'general.continue_shopping' | t }}
+          </a>
+        </div>
+        <ul class="wishlist-items list-unstyled hidden" data-wishlist-items role="list"></ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -105,6 +105,24 @@
                     </h2>
                   </a>
                 </div>
+                <button
+                  type="button"
+                  class="product-page-wishlist-button"
+                  data-wishlist-button
+                  aria-pressed="false"
+                  data-product-id="{{ product.id }}"
+                  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                  data-product-handle="{{ product.handle }}"
+                  data-product-title="{{ product.title | escape }}"
+                  data-product-url="{{ product.url }}"
+                  data-product-price="{{ product.price }}"
+                  data-product-image="{% if product.featured_image %}{{ product.featured_image | image_url: width: 480 }}{% endif %}"
+                >
+                  <span class="svg-wrapper" aria-hidden="true">
+                    {{ 'icon-heart.svg' | inline_asset_content }}
+                  </span>
+                  <span>{{ 'general.wishlist.add' | t | default: 'Agregar a favoritos' }}</span>
+                </button>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',

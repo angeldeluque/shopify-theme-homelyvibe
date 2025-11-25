@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-cart-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -77,14 +78,80 @@
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
 
-  .header__icon--favorites.is-active svg path {
+  .header__icon--wishlist.is-active svg path {
     fill: currentColor;
     stroke: currentColor;
   }
-  
-  .header__icon--favorites svg {
+
+  .header__icon--wishlist svg {
     width: 2rem;
     height: 2rem;
+  }
+
+  .wishlist-count-bubble.hidden {
+    display: none;
+  }
+
+  .wishlist-drawer {
+    visibility: hidden;
+  }
+
+  .wishlist-drawer.active {
+    visibility: visible;
+  }
+
+  .wishlist-drawer__contents {
+    gap: 1.5rem;
+  }
+
+  .wishlist-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .wishlist-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .wishlist-item__media {
+    width: 8rem;
+    height: 8rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    flex-shrink: 0;
+    background: rgba(var(--color-foreground), 0.05);
+  }
+
+  .wishlist-item__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .wishlist-item__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .wishlist-item__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .wishlist-item__actions {
+      flex-direction: row;
+      align-items: center;
+    }
   }
 
   .section-header {
@@ -276,13 +343,23 @@
 
       <button
         type="button"
-        class="header__icon header__icon--favorites link focus-inset"
-        aria-label="{{ 'general.favorite.toggle' | t | default: 'Toggle favorites' }}"
-        onclick="document.dispatchEvent(new CustomEvent('hv-toggle-favorites'))"
+        class="header__icon header__icon--wishlist link focus-inset"
+        id="wishlist-icon-bubble"
+        aria-haspopup="dialog"
+        aria-expanded="false"
+        aria-label="{{ 'general.wishlist.open' | t | default: 'Ver favoritos' }}"
+        data-wishlist-toggle
       >
-        <span class="svg-wrapper">
+        <span class="svg-wrapper" data-wishlist-icon>
           {{ 'icon-heart.svg' | inline_asset_content }}
         </span>
+        <span class="visually-hidden">
+          {{ 'sections.header.wishlist' | t | default: 'Favoritos' }}
+        </span>
+        <div class="cart-count-bubble wishlist-count-bubble hidden" data-wishlist-count-wrapper>
+          <span aria-hidden="true" data-wishlist-count>0</span>
+          <span class="visually-hidden">{{ 'sections.header.wishlist_count' | t: count: 0 | default: 'Número de favoritos' }}</span>
+        </div>
       </button>
 
       {%- for block in section.blocks -%}
@@ -315,6 +392,8 @@
 {%- if settings.cart_type == "notification" -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
 {%- endif -%}
+
+{%- render 'wishlist-drawer', color_scheme: section.settings.color_scheme -%}
 
 {% javascript %}
   class StickyHeader extends HTMLElement {
