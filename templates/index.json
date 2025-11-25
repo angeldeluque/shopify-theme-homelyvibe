@@ -1,1 +1,299 @@
-{"sections":{"image-with-text":{"type":"image-with-text","blocks":{"heading":{"type":"heading","settings":{"heading":"Conecta contigo y tu entorno, crea tu realidad y descúbre tu vibe","heading_size":"h2"}},"button":{"type":"button","settings":{"button_label":"Nuestras categorías","button_link":"shopify:\/\/collections","button_style_secondary":false}}},"block_order":["heading","button"],"settings":{"image":"shopify:\/\/shop_images\/1905.i301.001.P.m004.c20.Portable_electronics_isometric_icons.jpg","height":"adapt","desktop_image_width":"medium","layout":"text_first","image_behavior":"ambient","content_layout":"overlap","desktop_content_position":"middle","desktop_content_alignment":"left","mobile_content_alignment":"center","section_color_scheme":"scheme-1","color_scheme":"scheme-2","padding_top":20,"padding_bottom":0}},"rich_text_jBRf3N":{"type":"rich-text","blocks":{"heading_iLzfbq":{"type":"heading","settings":{"heading":"<strong>Un hogar más smart, más tú.<\/strong>","heading_size":"h1"}},"text_axQrg6":{"type":"text","settings":{"text":"<h4>En Homely Vibe, mezclamos tecnología, estilo y bienestar para ayudarte a vivir de forma más inteligente y auténtica. Lo que haces cada día importa, y tu hogar debería potenciarlo.<br\/>Bienestar que vibra contigo. Innovación que simplifica. Estilo que refleja quién eres.<\/h4>"}},"button_47AM9d":{"type":"button","settings":{"button_label":"","button_link":"","button_style_secondary":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading_iLzfbq","text_axQrg6","button_47AM9d"],"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"scheme-2","full_width":true,"padding_top":24,"padding_bottom":20}},"collection_list_w9DBjw":{"type":"collection-list","blocks":{"featured_collection_7KGyBy":{"type":"featured_collection","settings":{"collection":"organizacion-y-hogar"}},"featured_collection_GX9m3J":{"type":"featured_collection","settings":{"collection":"bienestar-suplementos-y-vitaminas"}},"featured_collection_VFQRMV":{"type":"featured_collection","settings":{"collection":"mascotas-y-mas"}},"featured_collection_Ym7pU6":{"type":"featured_collection","settings":{"collection":"tecnologia-accesorios-y-lifestyle"}}},"block_order":["featured_collection_7KGyBy","featured_collection_GX9m3J","featured_collection_VFQRMV","featured_collection_Ym7pU6"],"name":"t:sections.collection-list.presets.name","settings":{"title":"Categorías","heading_size":"h1","image_ratio":"square","columns_desktop":4,"color_scheme":"","show_view_all":false,"columns_mobile":"2","swipe_on_mobile":true,"padding_top":36,"padding_bottom":36}},"multirow_zCwUHR":{"type":"multirow","blocks":{"row_K9NgD9":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/m502t0010_06jun22_smart_watch_02.png","caption":"simplifica tu rutina","heading":"Tecnología, Gadgets & Lifestyle","text":"<p>Simplifica tu día con productos inteligentes, accesorios funcionales y soluciones que aportan comodidad y diseño. <em>Smart living para tu rutina diaria.<\/em><\/p>","button_label":"Ver más","button_link":"shopify:\/\/collections\/tecnologia-accesorios-y-lifestyle"}},"row_TMBVx6":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/lindo-mascota-collage-aislado.jpg","caption":"Bienestar tambien para ellos","heading":"Mascotas & Más","text":"<p>Porque ellos también merecen bienestar. Encuentra productos pensados para su comodidad, salud y entretenimiento. <em>Tu hogar vibra mejor cuando ellos están felices.<\/em><\/p>","button_label":"Ver más","button_link":"shopify:\/\/collections\/mascotas-y-mas"}},"row_KhBknB":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/chica-en-buena-forma-fisica-ejercicios-de-yoga-chica-de-pelo-largo.jpg","caption":"Eleva tu energia","heading":"Suplementos, Vitaminas & Bienestar","text":"<p>Impulsa tu energía física y mental con productos seleccionados para mantenerte activo y equilibrado. <em>Bienestar desde adentro hacia afuera.<\/em><\/p>","button_label":"Ver más","button_link":"shopify:\/\/collections\/bienestar-suplementos-y-vitaminas"}}},"block_order":["row_K9NgD9","row_TMBVx6","row_KhBknB"],"name":"t:sections.multirow.presets.name","settings":{"image_height":"medium","desktop_image_width":"medium","image_layout":"alternate-left","heading_size":"h1","text_style":"body","button_style":"secondary","desktop_content_position":"middle","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"","row_color_scheme":"","padding_top":36,"padding_bottom":36}},"1764027681c5dd797c":{"type":"apps","settings":{"include_margins":true}},"multicolumn_CwDwbe":{"type":"multicolumn","blocks":{"column_jkHkQn":{"type":"column","settings":{"title":"<strong>Tecnología inteligente<\/strong>","text":"<p>Creamos experiencias que facilitan tu día. Gadgets y soluciones diseñados para sumar comodidad, eficiencia y bienestar. <em>Más smart, más tú.<\/em><\/p>","link_label":"","link":""}},"column_YJTUAH":{"type":"column","settings":{"title":"<strong>Bienestar en armonía<\/strong>","text":"<p>Creemos que el bienestar empieza en casa. Productos que aportan equilibrio a tu rutina, tu energía y tu estilo de vida. <em>Más bienestar, más vibra.<\/em><\/p>","link_label":"","link":""}},"column_fgNRHc":{"type":"column","settings":{"title":"<strong>Tu hogar, tu vibra<\/strong>","text":"<p>Tu espacio debe moverse contigo. Diseñamos soluciones que se adaptan a tu esencia para que vivas conectado con lo que te importa. <em>Más hogar, más tú.<\/em><\/p>","link_label":"","link":""}}},"block_order":["column_jkHkQn","column_YJTUAH","column_fgNRHc"],"name":"t:sections.multicolumn.presets.name","settings":{"title":"Vibra con nosotros","heading_size":"h1","image_width":"full","image_ratio":"adapt","button_label":"","button_link":"","columns_desktop":3,"column_alignment":"left","background_style":"primary","color_scheme":"","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"featured-collection":{"type":"featured-collection","settings":{"collection":"all","products_to_show":5,"title":"Productos destacados","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":5,"enable_desktop_slider":false,"full_width":true,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-2","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":56,"padding_bottom":68}}},"order":["image-with-text","rich_text_jBRf3N","collection_list_w9DBjw","multirow_zCwUHR","1764027681c5dd797c","multicolumn_CwDwbe","featured-collection"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image-with-text": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Conecta contigo y tu entorno, crea tu realidad y descúbre tu vibe",
+            "heading_size": "h2"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Nuestras categorías",
+            "button_link": "shopify://collections",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/1905.i301.001.P.m004.c20.Portable_electronics_isometric_icons.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "ambient",
+        "content_layout": "overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_jBRf3N": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_iLzfbq": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Un hogar más smart, más tú.</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_axQrg6": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>En Homely Vibe, mezclamos tecnología, estilo y bienestar para ayudarte a vivir de forma más inteligente y auténtica. Lo que haces cada día importa, y tu hogar debería potenciarlo.<br/>Bienestar que vibra contigo. Innovación que simplifica. Estilo que refleja quién eres.</h4>"
+          }
+        },
+        "button_47AM9d": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_iLzfbq",
+        "text_axQrg6",
+        "button_47AM9d"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 20
+      }
+    },
+    "collection_list_w9DBjw": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_7KGyBy": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "organizacion-y-hogar"
+          }
+        },
+        "featured_collection_GX9m3J": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bienestar-suplementos-y-vitaminas"
+          }
+        },
+        "featured_collection_VFQRMV": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mascotas-y-mas"
+          }
+        },
+        "featured_collection_Ym7pU6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tecnologia-accesorios-y-lifestyle"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_7KGyBy",
+        "featured_collection_GX9m3J",
+        "featured_collection_VFQRMV",
+        "featured_collection_Ym7pU6"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Categorías",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multirow_zCwUHR": {
+      "type": "multirow",
+      "blocks": {
+        "row_K9NgD9": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/m502t0010_06jun22_smart_watch_02.png",
+            "caption": "simplifica tu rutina",
+            "heading": "Tecnología, Gadgets & Lifestyle",
+            "text": "<p>Simplifica tu día con productos inteligentes, accesorios funcionales y soluciones que aportan comodidad y diseño. <em>Smart living para tu rutina diaria.</em></p>",
+            "button_label": "Ver más",
+            "button_link": "shopify://collections/tecnologia-accesorios-y-lifestyle"
+          }
+        },
+        "row_TMBVx6": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/lindo-mascota-collage-aislado.jpg",
+            "caption": "Bienestar tambien para ellos",
+            "heading": "Mascotas & Más",
+            "text": "<p>Porque ellos también merecen bienestar. Encuentra productos pensados para su comodidad, salud y entretenimiento. <em>Tu hogar vibra mejor cuando ellos están felices.</em></p>",
+            "button_label": "Ver más",
+            "button_link": "shopify://collections/mascotas-y-mas"
+          }
+        },
+        "row_KhBknB": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/chica-en-buena-forma-fisica-ejercicios-de-yoga-chica-de-pelo-largo.jpg",
+            "caption": "Eleva tu energia",
+            "heading": "Suplementos, Vitaminas & Bienestar",
+            "text": "<p>Impulsa tu energía física y mental con productos seleccionados para mantenerte activo y equilibrado. <em>Bienestar desde adentro hacia afuera.</em></p>",
+            "button_label": "Ver más",
+            "button_link": "shopify://collections/bienestar-suplementos-y-vitaminas"
+          }
+        }
+      },
+      "block_order": [
+        "row_K9NgD9",
+        "row_TMBVx6",
+        "row_KhBknB"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1764027681c5dd797c": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "multicolumn_CwDwbe": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_jkHkQn": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Tecnología inteligente</strong>",
+            "text": "<p>Creamos experiencias que facilitan tu día. Gadgets y soluciones diseñados para sumar comodidad, eficiencia y bienestar. <em>Más smart, más tú.</em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_YJTUAH": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Bienestar en armonía</strong>",
+            "text": "<p>Creemos que el bienestar empieza en casa. Productos que aportan equilibrio a tu rutina, tu energía y tu estilo de vida. <em>Más bienestar, más vibra.</em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_fgNRHc": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Tu hogar, tu vibra</strong>",
+            "text": "<p>Tu espacio debe moverse contigo. Diseñamos soluciones que se adaptan a tu esencia para que vivas conectado con lo que te importa. <em>Más hogar, más tú.</em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_jkHkQn",
+        "column_YJTUAH",
+        "column_fgNRHc"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Vibra con nosotros",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 5,
+        "title": "Productos destacados",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 5,
+        "enable_desktop_slider": false,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 68
+      }
+    }
+  },
+  "order": [
+    "image-with-text",
+    "rich_text_jBRf3N",
+    "collection_list_w9DBjw",
+    "multirow_zCwUHR",
+    "1764027681c5dd797c",
+    "multicolumn_CwDwbe",
+    "featured-collection"
+  ]
+}
