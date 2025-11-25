@@ -83,10 +83,6 @@
     stroke: currentColor;
   }
 
-  .header__icon--wishlist svg {
-    width: 2rem;
-    height: 2rem;
-  }
 
   .wishlist-count-bubble.hidden {
     display: none;
@@ -341,26 +337,28 @@
         </a>
       {%- endif -%}
 
-      <button
-        type="button"
-        class="header__icon header__icon--wishlist link focus-inset"
-        id="wishlist-icon-bubble"
-        aria-haspopup="dialog"
-        aria-expanded="false"
-        aria-label="{{ 'general.wishlist.open' | t | default: 'Ver favoritos' }}"
-        data-wishlist-toggle
-      >
-        <span class="svg-wrapper" data-wishlist-icon>
-          {{ 'icon-heart.svg' | inline_asset_content }}
-        </span>
-        <span class="visually-hidden">
-          {{ 'sections.header.wishlist' | t | default: 'Favoritos' }}
-        </span>
-        <div class="cart-count-bubble wishlist-count-bubble hidden" data-wishlist-count-wrapper>
-          <span aria-hidden="true" data-wishlist-count>0</span>
-          <span class="visually-hidden">{{ 'sections.header.wishlist_count' | t: count: 0 | default: 'Número de favoritos' }}</span>
-        </div>
-      </button>
+      {% if section.settings.show_wishlist %}
+        <button
+          type="button"
+          class="header__icon header__icon--wishlist link focus-inset"
+          id="wishlist-icon-bubble"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-label="{{ 'general.wishlist.open' | t | default: 'Ver favoritos' }}"
+          data-wishlist-toggle
+        >
+          <span class="svg-wrapper" data-wishlist-icon>
+            {{ 'icon-heart.svg' | inline_asset_content }}
+          </span>
+          <span class="visually-hidden">
+            {{ 'sections.header.wishlist' | t | default: 'Favoritos' }}
+          </span>
+          <div class="cart-count-bubble wishlist-count-bubble hidden" data-wishlist-count-wrapper>
+            <span aria-hidden="true" data-wishlist-count>0</span>
+            <span class="visually-hidden">{{ 'sections.header.wishlist_count' | t: count: 0 | default: 'Número de favoritos' }}</span>
+          </div>
+        </button>
+      {% endif %}
 
       {%- for block in section.blocks -%}
         {%- case block.type -%}
@@ -690,6 +688,12 @@
       "default": true,
       "label": "t:sections.header.settings.enable_customer_avatar.label",
       "info": "t:sections.header.settings.enable_customer_avatar.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_wishlist",
+      "default": true,
+      "label": "Mostrar botón Favoritos"
     },
     {
       "type": "header",

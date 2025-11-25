@@ -57,26 +57,28 @@
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
-        <button
-          type="button"
-          class="card-wishlist-button"
-          data-wishlist-button
-          aria-pressed="false"
-          data-product-id="{{ card_product.id }}"
-          data-variant-id="{{ card_product.selected_or_first_available_variant.id }}"
-          data-product-handle="{{ card_product.handle }}"
-          data-product-title="{{ card_product.title | escape }}"
-          data-product-url="{{ card_product.url }}"
-          data-product-price="{{ card_product.price }}"
-          data-product-image="{% if card_product.featured_media %}{{ card_product.featured_media | image_url: width: 360 }}{% endif %}"
-        >
-          <span class="visually-hidden">
-            {{ 'general.wishlist.add' | t | default: 'Agregar a favoritos' }}
-          </span>
-          <span class="svg-wrapper" aria-hidden="true">
-            {{ 'icon-heart.svg' | inline_asset_content }}
-          </span>
-        </button>
+        {% if settings.show_wishlist_on_product_cards %}
+          <button
+            type="button"
+            class="card-wishlist-button"
+            data-wishlist-button
+            aria-pressed="false"
+            data-product-id="{{ card_product.id }}"
+            data-variant-id="{{ card_product.selected_or_first_available_variant.id }}"
+            data-product-handle="{{ card_product.handle }}"
+            data-product-title="{{ card_product.title | escape }}"
+            data-product-url="{{ card_product.url }}"
+            data-product-price="{{ card_product.price }}"
+            data-product-image="{% if card_product.featured_media %}{{ card_product.featured_media | image_url: width: 360 }}{% endif %}"
+          >
+            <span class="visually-hidden">
+              {{ 'general.wishlist.add' | t | default: 'Agregar a favoritos' }}
+            </span>
+            <span class="svg-wrapper" aria-hidden="true">
+              {{ 'icon-heart.svg' | inline_asset_content }}
+            </span>
+          </button>
+        {% endif %}
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
             <div class="media media--transparent media--hover-effect">

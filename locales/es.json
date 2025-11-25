@@ -29,6 +29,14 @@
       }
     },
     "continue_shopping": "Seguir comprando",
+    "wishlist": {
+      "open": "Abrir favoritos",
+      "title": "Favoritos",
+      "empty": "Aun no has guardado productos en favoritos.",
+      "add": "Agregar a favoritos",
+      "remove": "Quitar de favoritos",
+      "view_product": "Ver producto"
+    },
     "pagination": {
       "label": "Paginación",
       "page": "Página {{ number }}",
@@ -279,6 +287,12 @@
     "header": {
       "announcement": "Anuncio",
       "menu": "Menú",
+      "wishlist": "Favoritos",
+      "wishlist_count": {
+        "one": "{{ count }} favorito",
+        "other": "{{ count }} favoritos",
+        "many": "{{ count }} favoritos"
+      },
       "cart_count": {
         "one": "{{ count }} artículo",
         "other": "{{ count }} artículos",

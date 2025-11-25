@@ -29,6 +29,14 @@
       }
     },
     "continue_shopping": "Continue shopping",
+    "wishlist": {
+      "open": "Open wishlist",
+      "title": "Wishlist",
+      "empty": "You have not saved any products yet.",
+      "add": "Add to wishlist",
+      "remove": "Remove from wishlist",
+      "view_product": "View product"
+    },
     "pagination": {
       "label": "Pagination",
       "page": "Page {{ number }}",
@@ -278,6 +286,11 @@
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
+      "wishlist": "Wishlist",
+      "wishlist_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      },
       "cart_count": {
         "one": "{{ count }} item",
         "other": "{{ count }} items"
