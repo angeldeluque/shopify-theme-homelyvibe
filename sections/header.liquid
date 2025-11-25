@@ -78,20 +78,35 @@
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
 
-  .header__icon--wishlist.is-active svg path {
-    fill: currentColor;
-    stroke: currentColor;
+  .header__icon--wishlist {
+    position: relative;
+    margin-right: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__icon--wishlist .svg-wrapper {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  .header__icon--wishlist svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    transition: fill var(--duration-short) ease, stroke var(--duration-short) ease;
   }
 
   .header__icon--wishlist svg path {
-    fill: none;
+    fill: transparent;
     stroke: currentColor;
-    stroke-width: 1.4px;
+    stroke-width: 1.2px;
   }
 
-  .header__icon--wishlist {
-    position: relative;
-    margin-right: -1.2rem;
+  .header__icon--wishlist.is-active svg path,
+  .header__icon--wishlist:hover svg path,
+  .header__icon--wishlist:focus-visible svg path {
+    fill: currentColor;
   }
 
 
@@ -101,6 +116,10 @@
 
   .wishlist-drawer {
     visibility: hidden;
+  }
+
+  .wishlist-drawer.drawer {
+    z-index: 1100;
   }
 
   .wishlist-drawer.active {
@@ -406,7 +425,7 @@
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
 {%- endif -%}
 
-{%- render 'wishlist-drawer', color_scheme: section.settings.color_scheme -%}
+{%- render 'wishlist-drawer', color_scheme: settings.cart_color_scheme -%}
 
 {% javascript %}
   class StickyHeader extends HTMLElement {
