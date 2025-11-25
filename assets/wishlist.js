@@ -156,17 +156,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function toggleFavorite(product) {
     const existingIndex = favorites.findIndex((item) => item.variantId === product.variantId);
+    let added;
 
     if (existingIndex > -1) {
       favorites.splice(existingIndex, 1);
+      added = false;
     } else {
       favorites.push(product);
+      added = true;
     }
 
     persistFavorites();
     updateHeaderCount();
     renderDrawer();
     syncCardButtons();
+
+    return added;
+  }
+
+  function animateButton(button, added) {
+    if (!button) {
+      return;
+    }
+
+    button.classList.remove('wishlist-button--pulse');
+    void button.offsetWidth;
+    button.classList.add('wishlist-button--pulse');
+
+    if (typeof added === 'boolean') {
+      button.classList.toggle('is-active', added);
+    }
+
+    button.addEventListener(
+      'animationend',
+      () => {
+        button.classList.remove('wishlist-button--pulse');
+      },
+      { once: true }
+    );
   }
 
   function openDrawer() {
@@ -187,7 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggle = event.target.closest('[data-wishlist-button]');
     if (toggle) {
       event.preventDefault();
-      toggleFavorite(getProductDataFromButton(toggle));
+      const added = toggleFavorite(getProductDataFromButton(toggle));
+      animateButton(toggle, added);
       return;
     }
 

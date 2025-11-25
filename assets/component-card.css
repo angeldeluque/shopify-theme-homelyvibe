@@ -91,6 +91,25 @@
   z-index: 2;
 }
 
+@keyframes wishlistPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--color-foreground), 0.2);
+  }
+  60% {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 8px rgba(var(--color-foreground), 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--color-foreground), 0);
+  }
+}
+
+.card-wishlist-button.wishlist-button--pulse {
+  animation: wishlistPulse 0.45s ease;
+}
+
 .card-wishlist-button:hover,
 .card-wishlist-button:focus-visible {
   background-color: rgba(var(--color-foreground), 0.1);

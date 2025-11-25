@@ -16,6 +16,25 @@ product-info {
   transition: background-color var(--duration-default) ease, color var(--duration-default) ease;
 }
 
+@keyframes wishlistButtonPop {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--color-foreground), 0.15);
+  }
+  60% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(var(--color-foreground), 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--color-foreground), 0);
+  }
+}
+
+.product-page-wishlist-button.wishlist-button--pulse {
+  animation: wishlistButtonPop 0.45s ease;
+}
+
 .product-page-wishlist-button .svg-wrapper {
   width: 1.6rem;
   height: 1.6rem;
