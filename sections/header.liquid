@@ -83,6 +83,12 @@
     stroke: currentColor;
   }
 
+  .header__icon--wishlist svg path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4px;
+  }
+
   .header__icon--wishlist {
     position: relative;
     margin-right: -1.2rem;
@@ -342,7 +348,11 @@
         </a>
       {%- endif -%}
 
-      {% if section.settings.show_wishlist %}
+      {% assign wishlist_globally_enabled = settings.enable_wishlist_header_button %}
+      {% if wishlist_globally_enabled == blank %}
+        {% assign wishlist_globally_enabled = true %}
+      {% endif %}
+      {% if section.settings.show_wishlist and wishlist_globally_enabled %}
         <button
           type="button"
           class="header__icon header__icon--wishlist link focus-inset"
