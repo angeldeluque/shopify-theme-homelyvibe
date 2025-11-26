@@ -24,8 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Build a user-scoped storage key; fallback to generic if not available
     function getUserScope() {
       try {
-        const el = document.querySelector('[data-customer-id]');
-        const cid = el ? el.getAttribute('data-customer-id') : null;
+        const cid = (window.theme && window.theme.customerId) ? window.theme.customerId : null;
         return cid ? `wishlist:${cid}` : 'wishlist:guest';
       } catch(e) { return 'wishlist:guest'; }
     }

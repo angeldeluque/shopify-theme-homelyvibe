@@ -307,6 +307,8 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
+    {%- render 'wishlist-drawer' -%}
+
     {% sections 'header-group' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
@@ -385,5 +387,6 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
