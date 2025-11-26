@@ -161,9 +161,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Re-bind on initial load and after pjax/ajax updates if present
-    bindWishlistButtons();
-    document.addEventListener('shopify:section:load', bindWishlistButtons);
-    document.addEventListener('shopify:section:select', bindWishlistButtons);
+    function initBindings() { bindWishlistButtons(); }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBindings);
+    } else { initBindings(); }
+    window.addEventListener('load', initBindings);
+    document.addEventListener('shopify:section:load', initBindings);
+    document.addEventListener('shopify:section:select', initBindings);
+
+    // Observe DOM for dynamically added product cards/buttons
+    const observer = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        if (m.addedNodes && m.addedNodes.length) {
+          // If any added node contains wishlist buttons, (re)bind
+          const hasWishlistBtn = Array.from(m.addedNodes).some(n => {
+            try { return (n.nodeType === 1) && (n.matches && n.matches('[data-wishlist-button]') || (n.querySelector && n.querySelector('[data-wishlist-button]'))); } catch(e) { return false; }
+          });
+          if (hasWishlistBtn) { bindWishlistButtons(); }
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
   })();
       'Ver favoritos';
     const openLabel =
