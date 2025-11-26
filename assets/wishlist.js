@@ -60,6 +60,72 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       countWrapper.classList.add('hidden');
     }
+
+    updateToggleAria(drawer.classList.contains('active'), count);
+  }
+
+  function updateToggleAria(isOpen, count) {
+    const baseOpenLabel =
+      toggleButton.dataset.wishlistOpenLabel ||
+      themeStrings.openWishlist ||
+      toggleButton.getAttribute('aria-label') ||
+      'Ver favoritos';
+    const openLabel =
+      typeof count === 'number' && count > 0
+        ? `${baseOpenLabel} (${count})`
+        : baseOpenLabel;
+    const closeLabel =
+      toggleButton.dataset.wishlistCloseLabel || themeStrings.closeWishlist || baseOpenLabel;
+
+    toggleButton.setAttribute('aria-label', isOpen ? closeLabel : openLabel);
+  }
+
+  function updateButtonLabels(button, isActive) {
+    if (!button) {
+      return;
+    }
+
+    const labelTarget = button.querySelector('[data-wishlist-label-target]');
+    const addLabel =
+      button.getAttribute('data-wishlist-add-label') ||
+      themeStrings.addToWishlist ||
+      'Agregar a favoritos';
+    const addedLabel =
+      button.getAttribute('data-wishlist-added-label') ||
+      themeStrings.addedToWishlist ||
+      'En favoritos';
+    const labelToUse = isActive ? addedLabel : addLabel;
+
+    if (labelTarget) {
+      labelTarget.textContent = labelToUse;
+    }
+
+    button.setAttribute('aria-label', labelToUse);
+  }
+
+  function playButtonAnimation(button, added) {
+    if (!button) {
+      return;
+    }
+
+    if (button._wishlistAnimationTimeout) {
+      window.clearTimeout(button._wishlistAnimationTimeout);
+      button._wishlistAnimationTimeout = null;
+    }
+
+    button.classList.remove('wishlist-button--just-added', 'wishlist-button--just-removed');
+
+    // Force reflow so the animation can restart reliably.
+    void button.offsetWidth;
+
+    const animationClass = added ? 'wishlist-button--just-added' : 'wishlist-button--just-removed';
+    button.classList.add(animationClass);
+
+    const duration = added ? 650 : 340;
+    button._wishlistAnimationTimeout = window.setTimeout(() => {
+      button.classList.remove('wishlist-button--just-added', 'wishlist-button--just-removed');
+      button._wishlistAnimationTimeout = null;
+    }, duration);
   }
 
   function buildWishlistItem(item) {
@@ -141,9 +207,20 @@ document.addEventListener('DOMContentLoaded', () => {
   function syncCardButtons() {
     document.querySelectorAll('[data-wishlist-button]').forEach((button) => {
       const variantId = button.getAttribute('data-variant-id');
-      const isActive = isInWishlist(variantId);
-      button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      const shouldBeActive = isInWishlist(variantId);
+      const wasActive = button.classList.contains('is-active');
+
+      button.classList.toggle('is-active', shouldBeActive);
+      button.setAttribute('aria-pressed', shouldBeActive ? 'true' : 'false');
+      updateButtonLabels(button, shouldBeActive);
+
+      if (button.classList.contains('wishlist-skip-sync-anim')) {
+        return;
+      }
+
+      if (shouldBeActive !== wasActive) {
+        playButtonAnimation(button, shouldBeActive);
+      }
     });
   }
 
@@ -173,31 +250,8 @@ document.addEventListener('DOMContentLoaded', () => {
     persistFavorites();
     updateHeaderCount();
     renderDrawer();
-    syncCardButtons();
 
     return added;
-  }
-
-  function animateButton(button, added) {
-    if (!button) {
-      return;
-    }
-
-    button.classList.remove('wishlist-button--pulse');
-    void button.offsetWidth;
-    button.classList.add('wishlist-button--pulse');
-
-    if (typeof added === 'boolean') {
-      button.classList.toggle('is-active', added);
-    }
-
-    button.addEventListener(
-      'animationend',
-      () => {
-        button.classList.remove('wishlist-button--pulse');
-      },
-      { once: true }
-    );
   }
 
   function openDrawer() {
@@ -205,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     drawer.setAttribute('aria-hidden', 'false');
     document.body.classList.add('wishlist-open');
     toggleButton.setAttribute('aria-expanded', 'true');
+    updateToggleAria(true, favorites.length);
   }
 
   function closeDrawer() {
@@ -212,14 +267,25 @@ document.addEventListener('DOMContentLoaded', () => {
     drawer.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('wishlist-open');
     toggleButton.setAttribute('aria-expanded', 'false');
+    updateToggleAria(false, favorites.length);
   }
 
   document.addEventListener('click', (event) => {
     const toggle = event.target.closest('[data-wishlist-button]');
     if (toggle) {
       event.preventDefault();
-      const added = toggleFavorite(getProductDataFromButton(toggle));
-      animateButton(toggle, added);
+      const productData = getProductDataFromButton(toggle);
+      toggle.classList.add('wishlist-skip-sync-anim');
+
+      const added = toggleFavorite(productData);
+
+      toggle.classList.toggle('is-active', added);
+      toggle.setAttribute('aria-pressed', added ? 'true' : 'false');
+      updateButtonLabels(toggle, added);
+      playButtonAnimation(toggle, added);
+
+      syncCardButtons();
+      toggle.classList.remove('wishlist-skip-sync-anim');
       return;
     }
 
