@@ -57,7 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
       return window.Shopify.formatMoney(cents, window.Shopify.money_format);
     }
-    return `$${(cents / 100).toFixed(2)}`;
+
+    const locale = document.documentElement.lang || themeGlobals.locale || 'es-CO';
+    const currency =
+      (window.Shopify && window.Shopify.currency && window.Shopify.currency.active) ||
+      themeGlobals.currency ||
+      'COP';
+
+    try {
+      return new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(cents / 100);
+    } catch (error) {
+      console.warn('Wishlist money format error', error);
+      return `$${(cents / 100).toFixed(2)}`;
+    }
   }
 
   function isInWishlist(variantId) {
@@ -166,6 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const info = document.createElement('div');
     info.className = 'wishlist-item__info';
 
+    const infoMeta = document.createElement('div');
+    infoMeta.className = 'wishlist-item__meta';
+
     const titleLink = document.createElement('a');
     titleLink.href = item.url;
     titleLink.className = 'wishlist-item__title link';
@@ -175,8 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
     price.className = 'wishlist-item__price';
     price.textContent = formatMoney(item.price);
 
-    info.appendChild(titleLink);
-    info.appendChild(price);
+    infoMeta.appendChild(titleLink);
+    infoMeta.appendChild(price);
+    info.appendChild(infoMeta);
 
     const actions = document.createElement('div');
     actions.className = 'wishlist-item__actions';
@@ -184,6 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewButton = document.createElement('a');
     viewButton.href = item.url;
     viewButton.className = 'button wishlist-item__view';
+    viewButton.setAttribute('data-wishlist-view', 'true');
+    viewButton.setAttribute('data-product-url', item.url);
     viewButton.textContent = themeStrings.viewProduct || 'Ver producto';
 
     const removeButton = document.createElement('button');
@@ -318,6 +341,17 @@ document.addEventListener('DOMContentLoaded', () => {
       updateHeaderCount();
       renderDrawer();
       syncCardButtons();
+      return;
+    }
+
+    const view = event.target.closest('[data-wishlist-view]');
+    if (view) {
+      event.preventDefault();
+      const targetUrl = view.getAttribute('href') || view.getAttribute('data-product-url');
+      closeDrawer();
+      window.setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 120);
     }
   });
 
