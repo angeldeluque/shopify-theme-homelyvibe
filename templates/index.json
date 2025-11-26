@@ -149,7 +149,7 @@
             "caption": "simplifica tu rutina",
             "heading": "Tecnología, Gadgets & Lifestyle",
             "text": "<p>Simplifica tu día con productos inteligentes, accesorios funcionales y soluciones que aportan comodidad y diseño. <em>Smart living para tu rutina diaria.</em></p>",
-            "button_label": "Ver más",
+            "button_label": "",
             "button_link": "shopify://collections/tecnologia-accesorios-y-lifestyle"
           }
         },
@@ -160,7 +160,7 @@
             "caption": "Bienestar tambien para ellos",
             "heading": "Mascotas & Más",
             "text": "<p>Porque ellos también merecen bienestar. Encuentra productos pensados para su comodidad, salud y entretenimiento. <em>Tu hogar vibra mejor cuando ellos están felices.</em></p>",
-            "button_label": "Ver más",
+            "button_label": "",
             "button_link": "shopify://collections/mascotas-y-mas"
           }
         },
@@ -171,7 +171,7 @@
             "caption": "Eleva tu energia",
             "heading": "Suplementos, Vitaminas & Bienestar",
             "text": "<p>Impulsa tu energía física y mental con productos seleccionados para mantenerte activo y equilibrado. <em>Bienestar desde adentro hacia afuera.</em></p>",
-            "button_label": "Ver más",
+            "button_label": "",
             "button_link": "shopify://collections/bienestar-suplementos-y-vitaminas"
           }
         }
