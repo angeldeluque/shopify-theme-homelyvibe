@@ -1,3 +1,6 @@
-- Align wishlist drawer overlay with cart drawer brightness/backdrop.
-- Standardize wishlist drawer buttons typography/size to match cart CTA style.
-- Investigate modified .gitignore entry and confirm intended change.
+1. Align wishlist drawer overlay/backdrop with cart brightness.
+2. Style wishlist action buttons to match cart CTA colors.
+3. Center empty-state continue-shopping button.
+4. Ensure wishlist close control works and sits top-left.
+5. Commit and push updated drawer experience.
+

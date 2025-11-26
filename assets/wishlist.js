@@ -183,12 +183,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const viewButton = document.createElement('a');
     viewButton.href = item.url;
-    viewButton.className = 'button button--secondary';
+    viewButton.className = 'button wishlist-item__view';
     viewButton.textContent = themeStrings.viewProduct || 'Ver producto';
 
     const removeButton = document.createElement('button');
     removeButton.type = 'button';
-    removeButton.className = 'button button--tertiary';
+    removeButton.className = 'button wishlist-item__remove';
     removeButton.setAttribute('data-wishlist-remove', 'true');
     removeButton.setAttribute('data-variant-id', item.variantId);
     removeButton.textContent = themeStrings.removeFromWishlist || themeStrings.remove || 'Quitar';
