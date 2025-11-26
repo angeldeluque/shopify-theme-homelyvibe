@@ -9,14 +9,13 @@ product-info {
   margin: 1rem 0 2rem;
   padding: 0.8rem 1.6rem;
   border-radius: 999px;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.12);
-  background-color: rgba(var(--color-background), 0.96);
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  background-color: transparent;
   color: rgb(var(--color-foreground));
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(var(--color-foreground), 0.12);
-  transition: background-color var(--duration-default) ease, color var(--duration-default) ease,
-    border-color var(--duration-default) ease, box-shadow var(--duration-default) ease,
-    transform var(--duration-short) ease;
+  box-shadow: none;
+  transition: color var(--duration-default) ease, border-color var(--duration-default) ease,
+    background-color var(--duration-default) ease, transform var(--duration-short) ease;
   position: relative;
 }
 
@@ -38,16 +37,20 @@ product-info {
 .product-page-wishlist-button:hover,
 .product-page-wishlist-button:focus-visible {
   background-color: rgba(var(--color-foreground), 0.08);
-  box-shadow: 0 12px 26px rgba(var(--color-foreground), 0.18);
+  box-shadow: none;
   transform: translateY(-1px);
 }
 
+.product-page-wishlist-button:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.25);
+  outline-offset: 0.2rem;
+}
 
 .product-page-wishlist-button.is-active {
-  background-color: rgba(255, 77, 79, 0.12);
-  border-color: rgba(255, 77, 79, 0.45);
+  background-color: transparent;
+  border-color: rgba(255, 77, 79, 0.55);
   color: var(--wishlist-active-color, #ff4d4f);
-  box-shadow: 0 14px 30px rgba(255, 77, 79, 0.24);
+  box-shadow: none;
 }
 
 .product-page-wishlist-button.is-active .svg-wrapper {
@@ -60,23 +63,6 @@ product-info {
 
 .product-page-wishlist-button.is-active span:last-child {
   font-weight: 600;
-}
-
-.product-page-wishlist-button::after {
-  content: '';
-  position: absolute;
-  inset: -0.45rem;
-  border-radius: 999px;
-  background: radial-gradient(circle at center, rgba(255, 77, 79, 0.22) 0%, rgba(255, 77, 79, 0) 70%);
-  opacity: 0;
-  transform: scale(0.75);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  pointer-events: none;
-}
-
-.product-page-wishlist-button.is-active::after {
-  opacity: 1;
-  transform: scale(1);
 }
 
 @keyframes wishlistButtonAddedProduct {
@@ -106,27 +92,8 @@ product-info {
   }
 }
 
-@keyframes wishlistRingProduct {
-  0% {
-    opacity: 0;
-    transform: scale(0.65);
-  }
-  55% {
-    opacity: 0.6;
-    transform: scale(1.18);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 .product-page-wishlist-button.wishlist-button--just-added {
   animation: wishlistButtonAddedProduct 0.45s ease;
-}
-
-.product-page-wishlist-button.wishlist-button--just-added::after {
-  animation: wishlistRingProduct 0.6s ease;
 }
 
 .product-page-wishlist-button.wishlist-button--just-removed {

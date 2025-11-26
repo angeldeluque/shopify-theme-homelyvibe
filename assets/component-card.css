@@ -84,30 +84,16 @@
   width: 3.6rem;
   height: 3.6rem;
   border-radius: 50%;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(var(--color-background), 0.96);
+  background-color: transparent;
   color: rgb(var(--color-foreground));
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(var(--color-foreground), 0.12);
-  transition: background-color var(--duration-default) ease, color var(--duration-default) ease,
-    border-color var(--duration-default) ease, box-shadow var(--duration-default) ease,
-    transform var(--duration-short) ease;
+  border: none;
+  box-shadow: none;
+  transition: color var(--duration-short) ease, transform var(--duration-short) ease;
   z-index: 2;
-}
-
-.card-wishlist-button::after {
-  content: '';
-  position: absolute;
-  inset: -0.35rem;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(255, 77, 79, 0.28) 0%, rgba(255, 77, 79, 0) 70%);
-  opacity: 0;
-  transform: scale(0.75);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  pointer-events: none;
 }
 
 .card-wishlist-button svg path {
@@ -150,42 +136,20 @@
   }
 }
 
-@keyframes wishlistRing {
-  0% {
-    opacity: 0;
-    transform: scale(0.7);
-  }
-  55% {
-    opacity: 0.6;
-    transform: scale(1.25);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 @keyframes wishlistPulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(var(--color-foreground), 0.2);
   }
   60% {
     transform: scale(1.12);
-    box-shadow: 0 0 0 8px rgba(var(--color-foreground), 0);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(var(--color-foreground), 0);
   }
 }
 
 .card-wishlist-button.wishlist-button--just-added {
   animation: wishlistButtonAdded 0.42s ease;
-}
-
-.card-wishlist-button.wishlist-button--just-added::after {
-  animation: wishlistRing 0.55s ease;
 }
 
 .card-wishlist-button.wishlist-button--just-removed {
@@ -198,21 +162,16 @@
 
 .card-wishlist-button:hover,
 .card-wishlist-button:focus-visible {
-  background-color: rgba(var(--color-foreground), 0.08);
-  box-shadow: 0 10px 22px rgba(var(--color-foreground), 0.18);
   transform: translateY(-1px);
+}
+
+.card-wishlist-button:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.25);
+  outline-offset: 0.2rem;
 }
 
 .card-wishlist-button.is-active {
   color: var(--wishlist-active-color);
-  background-color: rgba(255, 77, 79, 0.12);
-  border-color: rgba(255, 77, 79, 0.45);
-  box-shadow: 0 12px 26px rgba(255, 77, 79, 0.24);
-}
-
-.card-wishlist-button.is-active::after {
-  opacity: 1;
-  transform: scale(1);
 }
 
 .card-wishlist-button.is-active svg path {
