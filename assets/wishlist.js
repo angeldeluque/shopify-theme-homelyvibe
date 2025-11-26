@@ -39,6 +39,10 @@
       return;
     }
 
+    if (drawer.parentNode && drawer.parentNode !== document.body) {
+      document.body.appendChild(drawer);
+    }
+
     const toggleButtons = Array.from(document.querySelectorAll('[data-wishlist-toggle]'));
     const closeTriggers = Array.from(drawer.querySelectorAll('[data-wishlist-close]'));
     const countWrapper = document.querySelector('[data-wishlist-count-wrapper]');
