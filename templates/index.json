@@ -15,15 +15,15 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Conecta contigo y tu entorno, crea tu realidad y descúbre tu vibe",
+            "heading": "<strong>Conecta contigo y tu entorno, crea tu realidad y descúbre tu vibe</strong>",
             "heading_size": "h2"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Nuestras categorías",
-            "button_link": "shopify://collections",
+            "button_label": "Todos los productos",
+            "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
         }
