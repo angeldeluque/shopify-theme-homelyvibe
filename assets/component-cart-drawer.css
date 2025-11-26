@@ -375,6 +375,21 @@ body.wishlist-open .drawer {
   border: 2px solid rgba(var(--color-background), 0.12);
 }
 
+/* Remove animation for wishlist items */
+.wishlist-item {
+  transition: opacity 200ms ease, transform 200ms ease, max-height 200ms ease, margin 200ms ease, padding 200ms ease;
+}
+
+.wishlist-item--removing {
+  opacity: 0;
+  transform: translateX(12px);
+  max-height: 0;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
 .cart-drawer .cart-item {
   display: grid;
   grid-template: repeat(2, auto) / repeat(4, 1fr);

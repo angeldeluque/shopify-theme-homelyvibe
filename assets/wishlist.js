@@ -1,110 +1,117 @@
 document.addEventListener('DOMContentLoaded', () => {
   const baseStorageKey = 'hv-wishlist-items';
-  const themeGlobals = window.theme || {};
-  const themeStrings = themeGlobals.strings || {};
-  const customerToken = themeGlobals.customerId || themeGlobals.customerIdentifier || null;
-  const storageKey = customerToken ? `${baseStorageKey}-${customerToken}` : baseStorageKey;
-  const drawer = document.querySelector('[data-wishlist-drawer]');
-  const toggleButton = document.querySelector('[data-wishlist-toggle]');
+  // Wishlist Drawer logic with animated removal and per-user persistence
+  (function() {
+    const drawer = document.querySelector('.wishlist-drawer');
+    const contents = document.querySelector('.wishlist-drawer__contents');
+    const closeButtons = document.querySelectorAll('[data-wishlist-close]');
+    const toggleButtons = document.querySelectorAll('[data-wishlist-toggle]');
 
-  if (!drawer || !toggleButton) {
-    return;
-  }
-
-  if (customerToken) {
-    try {
-      const legacyValue = localStorage.getItem(baseStorageKey);
-      if (legacyValue && !localStorage.getItem(storageKey)) {
-        localStorage.setItem(storageKey, legacyValue);
-        localStorage.removeItem(baseStorageKey);
+    function formatMoney(amount, currency) {
+      try {
+        return new Intl.NumberFormat('es-CO', { style: 'currency', currency }).format(amount);
+      } catch (e) {
+        return amount.toLocaleString('es-CO') + ' ' + currency;
       }
-    } catch (error) {
-      console.warn('Wishlist storage migration error', error);
-    }
-  }
-
-  if (drawer.parentElement && drawer.parentElement !== document.body) {
-    document.body.appendChild(drawer);
-  }
-
-  const countWrapper = document.querySelector('[data-wishlist-count-wrapper]');
-  const countValue = document.querySelector('[data-wishlist-count]');
-  const itemsContainer = drawer.querySelector('[data-wishlist-items]');
-  const emptyState = drawer.querySelector('[data-wishlist-empty]');
-  const closeTriggers = drawer.querySelectorAll('[data-wishlist-close]');
-
-  let favorites = loadFavorites();
-
-  function loadFavorites() {
-    try {
-      const stored = JSON.parse(localStorage.getItem(storageKey));
-      return Array.isArray(stored) ? stored : [];
-    } catch (error) {
-      console.warn('Wishlist storage parse error', error);
-      return [];
-    }
-  }
-
-  function persistFavorites() {
-    try {
-      localStorage.setItem(storageKey, JSON.stringify(favorites));
-    } catch (error) {
-      console.warn('Wishlist storage persist error', error);
-    }
-  }
-
-  function formatMoney(cents) {
-    if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
-      return window.Shopify.formatMoney(cents, window.Shopify.money_format);
     }
 
-    const locale = document.documentElement.lang || themeGlobals.locale || 'es-CO';
-    const currency =
-      (window.Shopify && window.Shopify.currency && window.Shopify.currency.active) ||
-      themeGlobals.currency ||
-      'COP';
+    function openDrawer() { document.body.classList.add('wishlist-open'); }
+    function closeDrawer() { document.body.classList.remove('wishlist-open'); }
 
-    try {
-      return new Intl.NumberFormat(locale, {
-        style: 'currency',
-        currency,
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      }).format(cents / 100);
-    } catch (error) {
-      console.warn('Wishlist money format error', error);
-      return `$${(cents / 100).toFixed(2)}`;
-    }
-  }
+    closeButtons.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); closeDrawer(); }));
+    toggleButtons.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); openDrawer(); }));
 
-  function isInWishlist(variantId) {
-    return favorites.some((item) => item.variantId === variantId);
-  }
-
-  function updateHeaderCount() {
-    const count = favorites.length;
-
-    if (!countWrapper || !countValue) {
-      return;
+    // Build a user-scoped storage key; fallback to generic if not available
+    function getUserScope() {
+      try {
+        const el = document.querySelector('[data-customer-id]');
+        const cid = el ? el.getAttribute('data-customer-id') : null;
+        return cid ? `wishlist:${cid}` : 'wishlist:guest';
+      } catch(e) { return 'wishlist:guest'; }
     }
 
-    countValue.textContent = count;
-    toggleButton.classList.toggle('is-active', count > 0);
+    const storageKey = getUserScope();
+    let wishlist = [];
 
-    if (count > 0) {
-      countWrapper.classList.remove('hidden');
-    } else {
-      countWrapper.classList.add('hidden');
+    function persist() {
+      try { localStorage.setItem(storageKey, JSON.stringify(wishlist)); } catch (e) {}
     }
 
-    updateToggleAria(drawer.classList.contains('active'), count);
-  }
+    function load() {
+      try {
+        const raw = localStorage.getItem(storageKey);
+        wishlist = raw ? JSON.parse(raw) : [];
+      } catch (e) { wishlist = []; }
+    }
 
-  function updateToggleAria(isOpen, count) {
-    const baseOpenLabel =
-      toggleButton.dataset.wishlistOpenLabel ||
-      themeStrings.openWishlist ||
-      toggleButton.getAttribute('aria-label') ||
+    function buildRow(item) {
+      const row = document.createElement('div');
+      row.className = 'wishlist-item';
+      row.setAttribute('data-id', item.id);
+      row.innerHTML = `
+        <div class="wishlist-item__media"><img src="${item.image}" alt="${item.title}" /></div>
+        <div class="wishlist-item__info">
+          <a href="${item.url}" class="wishlist-item__title">${item.title}</a>
+          <div class="wishlist-item__meta">${formatMoney(item.price, item.currency || 'COP')}</div>
+        </div>
+        <div class="wishlist-item__actions">
+          <button class="button button--primary wishlist-item__view" data-url="${item.url}">Ver producto</button>
+          <button class="button button--primary wishlist-item__remove" data-id="${item.id}">Quitar de favoritos</button>
+        </div>
+      `;
+      // Bind actions
+      const viewBtn = row.querySelector('.wishlist-item__view');
+      const removeBtn = row.querySelector('.wishlist-item__remove');
+      viewBtn.addEventListener('click', (e) => { e.preventDefault(); const url = viewBtn.getAttribute('data-url'); closeDrawer(); window.location.href = url; });
+      removeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = removeBtn.getAttribute('data-id');
+        row.classList.add('wishlist-item--removing');
+        const finishRemoval = () => {
+          row.removeEventListener('transitionend', finishRemoval);
+          wishlist = wishlist.filter(x => String(x.id) !== String(id));
+          persist();
+          row.remove();
+        };
+        row.addEventListener('transitionend', finishRemoval);
+        setTimeout(finishRemoval, 350); // fallback
+      });
+      return row;
+    }
+
+    function render() {
+      if (!contents) return;
+      contents.innerHTML = '';
+      wishlist.forEach(item => contents.appendChild(buildRow(item)));
+    }
+
+    // Public API to add to wishlist (to be called elsewhere)
+    window.Wishlist = window.Wishlist || {
+      add(item) {
+        // item: {id, title, url, image, price, currency}
+        if (!item || !item.id) return;
+        if (wishlist.some(x => String(x.id) === String(item.id))) return;
+        wishlist.push(item);
+        persist();
+        if (contents) contents.appendChild(buildRow(item));
+      },
+      remove(id) {
+        const row = contents && contents.querySelector(`.wishlist-item[data-id="${id}"]`);
+        if (row) {
+          row.classList.add('wishlist-item--removing');
+          const done = () => { row.removeEventListener('transitionend', done); row.remove(); };
+          row.addEventListener('transitionend', done);
+        }
+        wishlist = wishlist.filter(x => String(x.id) !== String(id));
+        persist();
+      },
+      list() { return [...wishlist]; }
+    };
+
+    // Initialize
+    load();
+    render();
+  })();
       'Ver favoritos';
     const openLabel =
       typeof count === 'number' && count > 0
