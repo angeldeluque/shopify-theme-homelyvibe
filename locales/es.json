@@ -47,8 +47,10 @@
       "title": "Favoritos",
       "empty": "Aun no has guardado productos en favoritos.",
       "add": "Agregar a favoritos",
+      "added": "Guardado en favoritos",
       "remove": "Quitar de favoritos",
-      "view_product": "Ver producto"
+      "view_product": "Ver producto",
+      "close": "Cerrar favoritos"
     },
     "pagination": {
       "label": "Paginación",

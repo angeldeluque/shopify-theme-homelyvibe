@@ -43,8 +43,10 @@
       "title": "Wishlist",
       "empty": "You have not saved any products yet.",
       "add": "Add to wishlist",
+      "added": "Saved to wishlist",
       "remove": "Remove from wishlist",
-      "view_product": "View product"
+      "view_product": "View product",
+      "close": "Close wishlist"
     },
     "pagination": {
       "label": "Pagination",

@@ -1,11 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const storageKey = 'hv-wishlist-items';
+  const baseStorageKey = 'hv-wishlist-items';
+  const themeGlobals = window.theme || {};
+  const themeStrings = themeGlobals.strings || {};
+  const customerToken = themeGlobals.customerId || themeGlobals.customerIdentifier || null;
+  const storageKey = customerToken ? `${baseStorageKey}-${customerToken}` : baseStorageKey;
   const drawer = document.querySelector('[data-wishlist-drawer]');
   const toggleButton = document.querySelector('[data-wishlist-toggle]');
-  const themeStrings = (window.theme && window.theme.strings) || {};
 
   if (!drawer || !toggleButton) {
     return;
+  }
+
+  if (customerToken) {
+    try {
+      const legacyValue = localStorage.getItem(baseStorageKey);
+      if (legacyValue && !localStorage.getItem(storageKey)) {
+        localStorage.setItem(storageKey, legacyValue);
+        localStorage.removeItem(baseStorageKey);
+      }
+    } catch (error) {
+      console.warn('Wishlist storage migration error', error);
+    }
   }
 
   if (drawer.parentElement && drawer.parentElement !== document.body) {
@@ -31,7 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function persistFavorites() {
-    localStorage.setItem(storageKey, JSON.stringify(favorites));
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(favorites));
+    } catch (error) {
+      console.warn('Wishlist storage persist error', error);
+    }
   }
 
   function formatMoney(cents) {
@@ -89,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addLabel =
       button.getAttribute('data-wishlist-add-label') ||
       themeStrings.addToWishlist ||
+      themeStrings.addWishlist ||
       'Agregar a favoritos';
     const addedLabel =
       button.getAttribute('data-wishlist-added-label') ||
@@ -171,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     removeButton.className = 'button button--tertiary';
     removeButton.setAttribute('data-wishlist-remove', 'true');
     removeButton.setAttribute('data-variant-id', item.variantId);
-    removeButton.textContent = themeStrings.remove || 'Quitar';
+    removeButton.textContent = themeStrings.removeFromWishlist || themeStrings.remove || 'Quitar';
 
     actions.appendChild(viewButton);
     actions.appendChild(removeButton);

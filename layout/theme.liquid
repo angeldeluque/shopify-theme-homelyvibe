@@ -363,6 +363,19 @@
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
+
+      window.theme = window.theme || {};
+      window.theme.locale = '{{ request.locale.iso_code }}';
+      window.theme.customerId = {{ customer.id | json }};
+      window.theme.customerLoggedIn = {{ customer != nil | json }};
+      window.theme.strings = Object.assign({}, window.theme.strings || {}, {
+        openWishlist: `{{ 'general.wishlist.open' | t }}`,
+        closeWishlist: `{{ 'general.wishlist.close' | t }}`,
+        addToWishlist: `{{ 'general.wishlist.add' | t }}`,
+        addedToWishlist: `{{ 'general.wishlist.added' | t }}`,
+        removeFromWishlist: `{{ 'general.wishlist.remove' | t }}`,
+        viewProduct: `{{ 'general.wishlist.view_product' | t }}`,
+      });
     </script>
 
     {%- if settings.predictive_search_enabled -%}
