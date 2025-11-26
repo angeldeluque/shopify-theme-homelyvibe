@@ -128,6 +128,8 @@
     "show_cart_note": true,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-2",
+    "show_wishlist_on_product_cards": true,
+    "enable_wishlist_header_button": true,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -170,7 +172,7 @@
           "background": "#fdfbf7",
           "background_gradient": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(241, 235, 226, 1) 100%)",
           "text": "#2e2a39",
-          "button": "#6ecf8d",
+          "button": "#14d68d",
           "button_label": "#fdfbf7",
           "secondary_button_label": "#2e2a39",
           "shadow": "#2e2a39"
@@ -220,9 +222,7 @@
           "shadow": "#000000"
         }
       }
-    },
-    "enable_wishlist_header_button": true,
-    "show_wishlist_on_product_cards": true
+    }
   },
   "presets": {
     "Sense": {
