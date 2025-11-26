@@ -323,13 +323,7 @@ body.wishlist-open .drawer {
   min-height: 4.4rem;
 }
 
-.wishlist-item__remove {
-  opacity: 0.92;
-}
-
-.wishlist-item__remove:hover {
-  opacity: 1;
-}
+/* Remove uses same full-color style as view */
 
 @media screen and (min-width: 750px) {
   .wishlist-item__actions {
@@ -355,6 +349,11 @@ body.wishlist-open .drawer {
 
 .wishlist-empty .button {
   min-width: 20rem;
+}
+
+/* Enable scrolling for wishlist content when many items */
+.wishlist-drawer__contents {
+  overflow: auto;
 }
 
 .cart-drawer .cart-item {
