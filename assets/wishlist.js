@@ -111,6 +111,60 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize
     load();
     render();
+
+    // Bind product card wishlist buttons
+    function syncButtonState(btn) {
+      const pid = btn.getAttribute('data-product-id');
+      const isIn = wishlist.some(x => String(x.id) === String(pid));
+      btn.setAttribute('aria-pressed', isIn ? 'true' : 'false');
+      const labelTarget = btn.querySelector('[data-wishlist-label-target]');
+      const addLabel = btn.getAttribute('data-wishlist-add-label') || 'Agregar a favoritos';
+      const addedLabel = btn.getAttribute('data-wishlist-added-label') || 'En favoritos';
+      if (labelTarget) labelTarget.textContent = isIn ? addedLabel : addLabel;
+      btn.classList.toggle('is-active', isIn);
+    }
+
+    function bindWishlistButtons() {
+      const buttons = document.querySelectorAll('[data-wishlist-button]');
+      buttons.forEach((btn) => {
+        syncButtonState(btn);
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const product = {
+            id: btn.getAttribute('data-product-id'),
+            title: btn.getAttribute('data-product-title'),
+            url: btn.getAttribute('data-product-url'),
+            image: btn.getAttribute('data-product-image'),
+            // Shopify price is in cents; convert to major units
+            price: (parseInt(btn.getAttribute('data-product-price') || '0', 10) / 100),
+            currency: 'COP'
+          };
+          const exists = wishlist.some(x => String(x.id) === String(product.id));
+          if (exists) {
+            // remove
+            wishlist = wishlist.filter(x => String(x.id) !== String(product.id));
+            persist();
+            // also remove row in drawer if present
+            const row = contents && contents.querySelector(`.wishlist-item[data-id="${product.id}"]`);
+            if (row) {
+              row.classList.add('wishlist-item--removing');
+              row.addEventListener('transitionend', () => row.remove(), { once: true });
+              setTimeout(() => { if (row && row.parentNode) row.parentNode.removeChild(row); }, 350);
+            }
+          } else {
+            wishlist.push(product);
+            persist();
+            if (contents) contents.appendChild(buildRow(product));
+          }
+          syncButtonState(btn);
+        });
+      });
+    }
+
+    // Re-bind on initial load and after pjax/ajax updates if present
+    bindWishlistButtons();
+    document.addEventListener('shopify:section:load', bindWishlistButtons);
+    document.addEventListener('shopify:section:select', bindWishlistButtons);
   })();
       'Ver favoritos';
     const openLabel =
