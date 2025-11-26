@@ -353,7 +353,26 @@ body.wishlist-open .drawer {
 
 /* Enable scrolling for wishlist content when many items */
 .wishlist-drawer__contents {
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(var(--color-foreground), 0.25) rgba(var(--color-background), 0.12);
+}
+
+/* WebKit scrollbar styling */
+.wishlist-drawer__contents::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wishlist-drawer__contents::-webkit-scrollbar-track {
+  background: rgba(var(--color-background), 0.12);
+  border-radius: 8px;
+}
+
+.wishlist-drawer__contents::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--color-foreground), 0.25);
+  border-radius: 8px;
+  border: 2px solid rgba(var(--color-background), 0.12);
 }
 
 .cart-drawer .cart-item {
