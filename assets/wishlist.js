@@ -364,7 +364,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   closeTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', closeDrawer);
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDrawer();
+    });
   });
 
   document.addEventListener('keydown', (event) => {

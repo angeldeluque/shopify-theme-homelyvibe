@@ -201,8 +201,8 @@ cart-drawer-items {
 
 /* Wishlist drawer overrides */
 body.wishlist-open .drawer {
-  background-color: rgba(var(--color-foreground), 0.55);
-  backdrop-filter: blur(2px);
+  background-color: rgba(var(--color-foreground), 0.5);
+  backdrop-filter: blur(4px);
 }
 
 .wishlist-drawer__container .drawer__header {
@@ -225,8 +225,7 @@ body.wishlist-open .drawer {
 .wishlist-drawer__container .drawer__inner {
   width: min(38rem, calc(100vw - 3rem));
   max-width: min(38rem, calc(100vw - 3rem));
-  background: rgba(var(--color-background), 0.96);
-  box-shadow: -1.2rem 0 3rem rgba(var(--color-foreground), 0.25);
+  /* Keep theme gradient from markup; no solid override here */
 }
 
 @media screen and (min-width: 990px) {
