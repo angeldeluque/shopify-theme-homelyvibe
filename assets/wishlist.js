@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  if (drawer.parentElement && drawer.parentElement !== document.body) {
+    document.body.appendChild(drawer);
+  }
+
   const countWrapper = document.querySelector('[data-wishlist-count-wrapper]');
   const countValue = document.querySelector('[data-wishlist-count]');
   const itemsContainer = drawer.querySelector('[data-wishlist-items]');

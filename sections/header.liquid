@@ -99,8 +99,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(var(--color-foreground), 0.06);
-    box-shadow: 0 8px 20px rgba(var(--color-foreground), 0.08);
+    background-color: rgba(var(--color-foreground), 0.04);
+    box-shadow: 0 4px 14px rgba(var(--color-foreground), 0.08);
     border: 0.1rem solid transparent;
     transition: background-color var(--duration-short) ease, box-shadow var(--duration-short) ease, transform var(--duration-short) ease;
   }
@@ -118,8 +118,8 @@
 
   .header__icon--wishlist:hover .svg-wrapper,
   .header__icon--wishlist:focus-visible .svg-wrapper {
-    background-color: rgba(var(--color-foreground), 0.14);
-    box-shadow: 0 10px 24px rgba(var(--color-foreground), 0.12);
+    background-color: rgba(var(--color-foreground), 0.1);
+    box-shadow: 0 8px 22px rgba(var(--color-foreground), 0.14);
     transform: translateY(-1px);
   }
 
@@ -166,7 +166,7 @@
   /* Ensure the wishlist overlay and panel stack above the header, announcement bar and any chat widget */
   .wishlist-drawer .cart-drawer__overlay {
     z-index: 2147483599;
-    background-color: rgba(var(--color-foreground), 0.5);
+    background-color: rgba(var(--color-foreground), 0.28);
   }
 
   .wishlist-drawer .drawer__inner {
