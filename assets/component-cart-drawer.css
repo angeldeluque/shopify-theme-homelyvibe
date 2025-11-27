@@ -1,6 +1,6 @@
 .drawer {
   position: fixed;
-  z-index: 2147483601;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100vw;
@@ -95,7 +95,6 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   color: rgb(var(--color-foreground));
   background-color: transparent;
   border: none;
-  cursor: pointer;
 }
 
 .cart-drawer__warnings .drawer__close {
