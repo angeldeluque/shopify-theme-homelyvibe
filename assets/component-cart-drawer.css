@@ -221,14 +221,17 @@ cart-drawer-items {
 
 /* Wishlist drawer overrides */
 .wishlist-drawer {
+  opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: visibility var(--duration-default) ease;
+  transition: opacity var(--duration-default) ease, visibility 0s linear var(--duration-default);
 }
 
 .wishlist-drawer.active {
+  opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transition: opacity var(--duration-default) ease, visibility 0s linear 0s;
 }
 
 body.wishlist-open .drawer {
@@ -244,8 +247,7 @@ body.wishlist-open .drawer {
   z-index: 2;
   padding-left: 2rem;
   padding-right: 2rem;
-  overflow-x: visible;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 990px) {
@@ -286,8 +288,8 @@ body.wishlist-open .drawer {
 
 @media screen and (min-width: 750px) {
   .wishlist-item {
-    grid-template-columns: 9.2rem minmax(0, 1fr) auto;
-    align-items: center;
+    grid-template-columns: 9.2rem minmax(0, 1fr);
+    align-items: flex-start;
   }
 }
 
@@ -333,19 +335,20 @@ body.wishlist-open .drawer {
 
 .wishlist-item__actions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
-  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: 0.5rem;
   grid-column: 1 / -1;
   width: 100%;
   min-width: 0;
+  margin-top: 0.4rem;
 }
 
 .wishlist-item__actions .button {
   width: 100%;
-  min-height: 3.6rem;
-  font-size: 1.3rem;
-  line-height: 1.35;
-  padding: 0.7rem 1rem;
+  min-height: 3.3rem;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  padding: 0.55rem 0.9rem;
   white-space: normal;
   justify-content: center;
 }
@@ -362,15 +365,9 @@ body.wishlist-open .drawer {
 
 @media screen and (min-width: 750px) {
   .wishlist-item__actions {
-    grid-column: auto;
-    grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
-    justify-self: flex-end;
-    width: min(100%, 26rem);
-    align-self: center;
-  }
-
-  .wishlist-item__actions .button {
-    min-width: 11.5rem;
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-self: flex-start;
   }
 }
 
