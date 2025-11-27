@@ -268,7 +268,7 @@ body.wishlist-open .drawer {
   grid-template-columns: 9.2rem 1fr;
   gap: 1.2rem;
   align-items: flex-start;
-  padding: 0.8rem 0.5rem 1.2rem 0;
+  padding: 0.8rem 1rem 1.2rem 0;
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
   max-height: 30rem;
   transition: opacity 240ms ease, transform 240ms ease, max-height 280ms ease, margin 280ms ease, padding 280ms ease;
@@ -288,8 +288,8 @@ body.wishlist-open .drawer {
 
 @media screen and (min-width: 750px) {
   .wishlist-item {
-    grid-template-columns: 9.2rem minmax(0, 1fr);
-    align-items: flex-start;
+    grid-template-columns: 9.2rem minmax(0, 1fr) minmax(12rem, 14rem);
+    align-items: start;
   }
 }
 
@@ -334,8 +334,8 @@ body.wishlist-open .drawer {
 }
 
 .wishlist-item__actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   grid-column: 1 / -1;
   width: 100%;
@@ -344,6 +344,7 @@ body.wishlist-open .drawer {
 }
 
 .wishlist-item__actions .button {
+  flex: 1 1 11rem;
   width: 100%;
   min-height: 3.3rem;
   font-size: 1.2rem;
@@ -365,9 +366,18 @@ body.wishlist-open .drawer {
 
 @media screen and (min-width: 750px) {
   .wishlist-item__actions {
-    grid-column: 1 / -1;
-    width: 100%;
-    justify-self: flex-start;
+    grid-column: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0;
+  }
+
+  .wishlist-item__actions .button {
+    flex: 0 0 auto;
+    min-width: 0;
   }
 }
 
