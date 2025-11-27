@@ -140,22 +140,25 @@
   }
 
   .wishlist-drawer.drawer {
-    z-index: 2147483600;
+    z-index: -1;
     background-color: rgba(15, 23, 42, 0.24);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
 
   .wishlist-drawer {
-    display: none;
     visibility: hidden;
+    opacity: 0;
     pointer-events: none;
+    transition: opacity var(--duration-default) ease, visibility 0s linear var(--duration-default);
   }
 
   .wishlist-drawer.active {
-    display: flex;
     visibility: visible;
+    opacity: 1;
     pointer-events: auto;
+    transition: opacity var(--duration-default) ease;
+    z-index: 2147483600;
   }
 
   body.wishlist-open {

@@ -32,6 +32,7 @@
   ready(() => {
     const drawer = document.querySelector('[data-wishlist-drawer]');
     const panel = drawer && drawer.querySelector('[data-wishlist-panel]');
+    const drawerContainer = drawer && drawer.querySelector('.wishlist-drawer__container');
     const itemsContainer = drawer && drawer.querySelector('[data-wishlist-items]');
     const emptyState = drawer && drawer.querySelector('[data-wishlist-empty]');
 
@@ -118,6 +119,9 @@
     function openDrawer() {
       drawer.classList.add('active');
       drawer.setAttribute('aria-hidden', 'false');
+      if (drawerContainer) {
+        drawerContainer.setAttribute('aria-hidden', 'false');
+      }
       document.body.classList.add('wishlist-open');
       updateToggleLabels(true);
       if (panel) {
@@ -128,6 +132,9 @@
     function closeDrawer() {
       drawer.classList.remove('active');
       drawer.setAttribute('aria-hidden', 'true');
+      if (drawerContainer) {
+        drawerContainer.setAttribute('aria-hidden', 'true');
+      }
       document.body.classList.remove('wishlist-open');
       updateToggleLabels(false);
     }
@@ -310,24 +317,45 @@
         return false;
       }
 
-      const listItem = itemsContainer.querySelector(`[data-wishlist-key="${CSS.escape(String(key))}"]`);
-      if (listItem) {
-        listItem.classList.add('wishlist-item--removing');
-        const removeNode = () => {
-          listItem.removeEventListener('transitionend', removeNode);
-          if (listItem.parentNode) {
-            listItem.parentNode.removeChild(listItem);
-          }
-        };
-        listItem.addEventListener('transitionend', removeNode);
-        window.setTimeout(removeNode, 400);
-      }
-
       favorites.splice(index, 1);
       persistFavorites();
       updateHeaderCount();
-      renderDrawer();
-      syncProductButtons();
+
+      const listItem = itemsContainer.querySelector(`[data-wishlist-key="${CSS.escape(String(key))}"]`);
+      let refreshed = false;
+      const refresh = () => {
+        if (refreshed) {
+          return;
+        }
+        refreshed = true;
+        renderDrawer();
+        syncProductButtons();
+      };
+
+      if (!listItem) {
+        refresh();
+        return true;
+      }
+
+      const handleTransitionEnd = (event) => {
+        if (event.target !== listItem) {
+          return;
+        }
+        listItem.removeEventListener('transitionend', handleTransitionEnd);
+        refresh();
+      };
+
+      listItem.addEventListener('transitionend', handleTransitionEnd);
+
+      requestAnimationFrame(() => {
+        listItem.classList.add('wishlist-item--removing');
+      });
+
+      window.setTimeout(() => {
+        listItem.removeEventListener('transitionend', handleTransitionEnd);
+        refresh();
+      }, 350);
+
       return true;
     }
 
