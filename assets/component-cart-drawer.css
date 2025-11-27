@@ -16,13 +16,25 @@
   overflow: visible;
 }
 
-/* Wishlist drawer: use same slide-in animation as cart */
-.wishlist-drawer__container .drawer__inner {
+/* Wishlist drawer: same slide-in animation as cart */
+.wishlist-drawer.drawer .drawer__inner {
   transform: translateX(100%);
   transition: transform 300ms ease;
 }
-.wishlist-drawer__container.wishlist-active .drawer__inner {
+.wishlist-drawer.drawer.active .drawer__inner {
   transform: translateX(0);
+}
+
+/* Animate removal of wishlist items */
+.wishlist-items .wishlist-item {
+  transition: opacity 300ms ease, transform 300ms ease, height 300ms ease, margin 300ms ease, padding 300ms ease;
+}
+.wishlist-items .wishlist-item.wishlist-item--removing {
+  opacity: 0.001; /* avoid transitionend issues with 0 on some browsers */
+  transform: translateX(10px);
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 .drawer {
   position: fixed;
