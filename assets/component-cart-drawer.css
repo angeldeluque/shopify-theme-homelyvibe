@@ -71,6 +71,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   transform: translateX(0);
 }
 
+    grid-auto-rows: auto;
 .drawer__header {
   position: relative;
   padding: 1.5rem 0;
@@ -84,6 +85,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 }
 .drawer__close {
   display: inline-block;
+    grid-column: 1 / -1;
   padding: 0;
   min-width: 4.4rem;
   min-height: 4.4rem;
@@ -99,10 +101,11 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 
 .cart-drawer__warnings .drawer__close {
   right: 5px;
-}
-
-.drawer__close .svg-wrapper {
-  height: 2rem;
+      grid-column: auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
   width: 2rem;
   display: inline-flex;
   align-items: center;
@@ -113,7 +116,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 .drawer__close:focus-visible {
   transform: translateY(-0.2rem) scale(1.05);
 }
-
+    transition: opacity 240ms ease, transform 240ms ease;
 .drawer__close:active {
   transform: translateY(0) scale(0.92);
   opacity: 0.8;
