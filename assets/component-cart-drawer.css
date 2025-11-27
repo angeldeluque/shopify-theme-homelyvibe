@@ -248,10 +248,10 @@ body.wishlist-open .drawer {
 
 .wishlist-item {
   display: grid;
-  grid-template-columns: 8.4rem 1fr;
-  gap: 1.2rem;
-  align-items: stretch;
-  padding: 1rem 0;
+  grid-template-columns: 9.2rem 1fr;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.8rem 0 1.2rem;
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
   transition: opacity 240ms ease, transform 240ms ease;
 }
@@ -264,14 +264,14 @@ body.wishlist-open .drawer {
 
 @media screen and (min-width: 750px) {
   .wishlist-item {
-    grid-template-columns: 8.4rem 1fr auto;
+    grid-template-columns: 9.2rem 1fr auto;
     align-items: center;
   }
 }
 
 .wishlist-item__media {
-  width: 8.4rem;
-  height: 8.4rem;
+  width: 9.2rem;
+  height: 9.2rem;
   border-radius: 1rem;
   overflow: hidden;
   background-color: rgba(var(--color-background), 0.2);
@@ -293,9 +293,8 @@ body.wishlist-open .drawer {
 
 .wishlist-item__meta {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.8rem;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .wishlist-item__title {
@@ -311,15 +310,18 @@ body.wishlist-open .drawer {
 }
 
 .wishlist-item__actions {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.8rem;
-  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: 0.6rem;
+  grid-column: 1 / -1;
 }
 
 .wishlist-item__actions .button {
   width: 100%;
+  min-height: 3.6rem;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  padding: 0.7rem 1rem;
   white-space: normal;
   justify-content: center;
 }
@@ -329,22 +331,21 @@ body.wishlist-open .drawer {
   --alpha-button-background: 1;
   --alpha-button-border: 0.1;
   font-weight: 600;
-  min-height: 4.4rem;
+  min-height: 3.6rem;
 }
 
 /* Remove uses same full-color style as view */
 
 @media screen and (min-width: 750px) {
   .wishlist-item__actions {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
+    grid-column: auto;
+    grid-template-columns: repeat(2, minmax(10.5rem, 1fr));
+    justify-self: flex-end;
+    max-width: 24rem;
   }
 
   .wishlist-item__actions .button {
-    width: auto;
-    min-width: 11rem;
+    min-width: 10.5rem;
   }
 }
 
@@ -382,11 +383,6 @@ body.wishlist-open .drawer {
   background-color: rgba(var(--color-foreground), 0.25);
   border-radius: 8px;
   border: 2px solid rgba(var(--color-background), 0.12);
-}
-
-/* Remove animation for wishlist items */
-.wishlist-item {
-  transition: opacity 200ms ease, transform 200ms ease, max-height 200ms ease, margin 200ms ease, padding 200ms ease;
 }
 
 .wishlist-item--removing {
