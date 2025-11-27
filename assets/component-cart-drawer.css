@@ -94,6 +94,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   color: rgb(var(--color-foreground));
   background-color: transparent;
   border: none;
+  transition: transform var(--duration-short, 150ms) ease, opacity var(--duration-short, 150ms) ease;
 }
 
 .cart-drawer__warnings .drawer__close {
@@ -103,6 +104,19 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 .drawer__close .svg-wrapper {
   height: 2rem;
   width: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer__close:hover,
+.drawer__close:focus-visible {
+  transform: translateY(-0.2rem) scale(1.05);
+}
+
+.drawer__close:active {
+  transform: translateY(0) scale(0.92);
+  opacity: 0.8;
 }
 
 .drawer__contents {
