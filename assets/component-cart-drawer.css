@@ -1,28 +1,54 @@
 .drawer {
   position: fixed;
-  inset: 0;
-  z-index: 101;
-  display: flex;
-  justify-content: flex-end;
-  pointer-events: none;
-  background-color: rgba(var(--color-foreground), 0.15);
-  transition: opacity var(--duration-default) ease, background-color var(--duration-default) ease;
-  opacity: 0;
-}
+  .wishlist-item {
+    display: grid;
+    grid-template-columns: 9.2rem minmax(0, 1fr);
+    grid-template-areas:
+      "media info"
+      "media actions";
+    gap: 1.2rem;
+    align-items: flex-start;
+    padding: 0.8rem 1.4rem 1.6rem 0;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+    max-height: 30rem;
+    transition: opacity 240ms ease, transform 240ms ease, max-height 280ms ease, margin 280ms ease, padding 280ms ease;
+    will-change: opacity, transform, max-height, margin, padding;
+  }
 
-.drawer__inner {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: min(40rem, calc(100vw - 3rem));
-  max-width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform var(--duration-default) ease;
-  background: rgb(var(--color-background));
-  pointer-events: auto;
+  .wishlist-item.wishlist-item--removing {
+    opacity: 0;
+    transform: translateX(2rem);
+    max-height: 0;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .wishlist-item__media {
+    width: 9.2rem;
+    height: 9.2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: rgba(var(--color-background), 0.2);
+    box-shadow: 0 0.4rem 1.2rem rgba(var(--color-foreground), 0.08);
+    grid-area: media;
+  }
+
+  .wishlist-item__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .wishlist-item__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    justify-content: center;
+    grid-area: info;
+  }
 }
 
 cart-drawer.is-empty .drawer__inner {
@@ -45,14 +71,11 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   margin-top: 2.5rem;
 }
 
-.drawer.active {
-  pointer-events: auto;
-  opacity: 1;
-}
-
 .drawer.active .drawer__inner {
   transform: translateX(0);
 }
+
+    grid-auto-rows: auto;
 .drawer__header {
   position: relative;
   padding: 1.5rem 0;
@@ -65,16 +88,15 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   margin: 0 0 1rem;
 }
 .drawer__close {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+    grid-column: 1 / -1;
   padding: 0;
   min-width: 4.4rem;
   min-height: 4.4rem;
   box-shadow: 0 0 0 0.2rem rgba(var(--color-button), 0);
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 10px;
+  right: -10px;
   color: rgb(var(--color-foreground));
   background-color: transparent;
   border: none;
@@ -82,13 +104,23 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 }
 
 .cart-drawer__warnings .drawer__close {
-  right: 0.5rem;
+  right: 5px;
+      grid-column: auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+  width: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .drawer__close:hover,
 .drawer__close:focus-visible {
   transform: translateY(-0.2rem) scale(1.05);
 }
+    transition: opacity 240ms ease, transform 240ms ease;
 .drawer__close:active {
   transform: translateY(0) scale(0.92);
   opacity: 0.8;
@@ -244,7 +276,7 @@ body.wishlist-open .drawer {
     "media actions";
   gap: 1.2rem;
   align-items: flex-start;
-  padding: 0.8rem 1.4rem 1.6rem 0;
+  padding: 0.8rem 1.9rem 1.6rem 0; /* add extra breathing room so action buttons keep full border radius */
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
   max-height: 30rem;
   transition: opacity 240ms ease, transform 240ms ease, max-height 280ms ease, margin 280ms ease, padding 280ms ease;
@@ -346,7 +378,7 @@ body.wishlist-open .drawer {
     grid-template-columns: 9.2rem minmax(0, 1fr) 16rem;
     grid-template-areas: "media info actions";
     align-items: flex-start;
-    padding-right: 1.8rem;
+    padding-right: 2.4rem;
   }
 
   .wishlist-item__actions {

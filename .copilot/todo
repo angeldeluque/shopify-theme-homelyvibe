@@ -1,6 +1,6 @@
-1. Align wishlist drawer overlay/backdrop with cart brightness.
-2. Style wishlist action buttons to match cart CTA colors.
-3. Center empty-state continue-shopping button.
-4. Ensure wishlist close control works and sits top-left.
-5. Commit and push updated drawer experience.
+1. [in-progress] Diagnose wishlist drawer regression.
+2. [in-progress] Restore original cart drawer behavior.
+3. [in-progress] Adjust wishlist buttons layout (no clipping).
+4. [not-started] Validate wishlist/cart interactions manually.
+5. [not-started] Prepare summary and commit plan.
 
