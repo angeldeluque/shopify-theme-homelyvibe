@@ -246,7 +246,7 @@ body.wishlist-open .drawer {
   position: relative;
   z-index: 2;
   padding-left: 2rem;
-  padding-right: 2rem;
+  padding-right: 2.6rem; /* extra room to avoid right-edge clipping on mobile */
   overflow: hidden;
 }
 
@@ -288,7 +288,7 @@ body.wishlist-open .drawer {
 
 @media screen and (min-width: 750px) {
   .wishlist-item {
-    grid-template-columns: 9.2rem minmax(0, 1fr) 14rem;
+    grid-template-columns: 9.2rem minmax(0, 1fr) 16rem; /* wider actions column for comfortable stacking */
     align-items: flex-start;
   }
 }
@@ -374,6 +374,21 @@ body.wishlist-open .drawer {
 
   .wishlist-item__actions .button {
     min-width: 0;
+    min-height: 3.6rem; /* consistent with mobile visual size */
+    font-size: 1.3rem;
+    padding: 0.7rem 1.1rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .wishlist-item {
+    padding-right: 1.4rem; /* add inner space for right-rounded button corners */
+  }
+
+  .wishlist-item__actions .button {
+    min-height: 3.6rem;
+    font-size: 1.3rem;
+    padding: 0.7rem 1.1rem;
   }
 }
 
