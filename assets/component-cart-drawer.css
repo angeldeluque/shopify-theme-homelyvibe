@@ -231,6 +231,8 @@ body.wishlist-open .drawer {
   /* Keep theme gradient from markup; no solid override here */
   position: relative;
   z-index: 2;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 @media screen and (min-width: 990px) {
@@ -311,7 +313,7 @@ body.wishlist-open .drawer {
 
 .wishlist-item__actions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
   gap: 0.6rem;
   grid-column: 1 / -1;
 }
@@ -339,13 +341,13 @@ body.wishlist-open .drawer {
 @media screen and (min-width: 750px) {
   .wishlist-item__actions {
     grid-column: auto;
-    grid-template-columns: repeat(2, minmax(10.5rem, 1fr));
+    grid-template-columns: repeat(2, minmax(11.5rem, 1fr));
     justify-self: flex-end;
-    max-width: 24rem;
+    max-width: 26rem;
   }
 
   .wishlist-item__actions .button {
-    min-width: 10.5rem;
+    min-width: 11.5rem;
   }
 }
 
