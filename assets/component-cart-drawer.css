@@ -220,6 +220,17 @@ cart-drawer-items {
 }
 
 /* Wishlist drawer overrides */
+.wishlist-drawer {
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility var(--duration-default) ease;
+}
+
+.wishlist-drawer.active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
 body.wishlist-open .drawer {
   background-color: rgba(var(--color-foreground), 0.5);
   backdrop-filter: blur(4px);
@@ -231,8 +242,10 @@ body.wishlist-open .drawer {
   /* Keep theme gradient from markup; no solid override here */
   position: relative;
   z-index: 2;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  overflow-x: visible;
+  overflow-y: hidden;
 }
 
 @media screen and (min-width: 990px) {
@@ -251,22 +264,29 @@ body.wishlist-open .drawer {
 .wishlist-item {
   display: grid;
   grid-template-columns: 9.2rem 1fr;
-  gap: 1rem;
+  gap: 1.2rem;
   align-items: flex-start;
-  padding: 0.8rem 0 1.2rem;
+  padding: 0.8rem 0.5rem 1.2rem 0;
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  transition: opacity 240ms ease, transform 240ms ease;
+  max-height: 30rem;
+  transition: opacity 240ms ease, transform 240ms ease, max-height 280ms ease, margin 280ms ease, padding 280ms ease;
+  will-change: opacity, transform, max-height, margin, padding;
 }
 
 .wishlist-item.wishlist-item--removing {
   opacity: 0;
   transform: translateX(2rem);
+  max-height: 0;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 750px) {
   .wishlist-item {
-    grid-template-columns: 9.2rem 1fr auto;
+    grid-template-columns: 9.2rem minmax(0, 1fr) auto;
     align-items: center;
   }
 }
@@ -316,6 +336,8 @@ body.wishlist-open .drawer {
   grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
   gap: 0.6rem;
   grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
 }
 
 .wishlist-item__actions .button {
@@ -341,9 +363,10 @@ body.wishlist-open .drawer {
 @media screen and (min-width: 750px) {
   .wishlist-item__actions {
     grid-column: auto;
-    grid-template-columns: repeat(2, minmax(11.5rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
     justify-self: flex-end;
-    max-width: 26rem;
+    width: min(100%, 26rem);
+    align-self: center;
   }
 
   .wishlist-item__actions .button {
@@ -385,16 +408,6 @@ body.wishlist-open .drawer {
   background-color: rgba(var(--color-foreground), 0.25);
   border-radius: 8px;
   border: 2px solid rgba(var(--color-background), 0.12);
-}
-
-.wishlist-item--removing {
-  opacity: 0;
-  transform: translateX(12px);
-  max-height: 0;
-  margin: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  overflow: hidden;
 }
 
 .cart-drawer .cart-item {
