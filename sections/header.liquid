@@ -146,17 +146,29 @@
     -webkit-backdrop-filter: none;
   }
 
+  .wishlist-drawer {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
   .wishlist-drawer.active {
     visibility: visible;
+    pointer-events: auto;
   }
 
   body.wishlist-open {
     overflow: hidden;
   }
 
-  /* Ensure the wishlist overlay and panel stack above the header, announcement bar and any chat widget */
-  .wishlist-drawer {
-    visibility: hidden;
+  /* Ensure the wishlist overlay stays interactive only when open */
+  .wishlist-drawer .cart-drawer__overlay,
+  .wishlist-drawer .drawer__inner {
+    pointer-events: none;
+  }
+
+  .wishlist-drawer.active .cart-drawer__overlay,
+  .wishlist-drawer.active .drawer__inner {
+    pointer-events: auto;
   }
 
   .wishlist-drawer .cart-drawer__overlay {
