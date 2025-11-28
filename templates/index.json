@@ -328,9 +328,9 @@
         "collapsible_row_Ur6DiQ": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Fila desplegable",
+            "heading": "¿Qué garantía tienen los productos?",
             "icon": "chat_bubble",
-            "row_content": "",
+            "row_content": "<p>Todos nuestros productos tienen garantía en plazos variables por defectos de fabricación o mal estado.</p>",
             "page": ""
           }
         }
