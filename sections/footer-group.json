@@ -11,6 +11,39 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "¡Entérate de todas nuestras promociones!",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Ingresa aqui tu correo:</p>"
+          }
+        },
+        "email-form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email-form"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 24
+      }
+    },
     "footer": {
       "type": "footer",
       "settings": {
@@ -30,6 +63,7 @@
     }
   },
   "order": [
+    "newsletter",
     "footer"
   ]
 }
