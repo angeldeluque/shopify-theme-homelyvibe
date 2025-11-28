@@ -310,9 +310,9 @@
         "collapsible_row_BjQE7w": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Fila desplegable",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "¿Puedo asesorarme antes de comprar?",
+            "icon": "chat_bubble",
+            "row_content": "<p>Si, puedes contactar con un asesor en el <strong>chat web</strong> que puedes encontrar abajo a la derecha como un globo de chat, o al correo: <strong>hvsoporte@investmentsandsolutionsgroup.com</strong></p>",
             "page": ""
           }
         },
