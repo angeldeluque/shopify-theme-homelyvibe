@@ -103,7 +103,7 @@
         "featured_collection_GX9m3J": {
           "type": "featured_collection",
           "settings": {
-            "collection": "bienestar-suplementos-y-vitaminas"
+            "collection": "salud-belleza-y-bienestar"
           }
         },
         "featured_collection_VFQRMV": {
@@ -172,7 +172,7 @@
             "heading": "Suplementos, Vitaminas & Bienestar",
             "text": "<p>Impulsa tu energía física y mental con productos seleccionados para mantenerte activo y equilibrado. <em>Bienestar desde adentro hacia afuera.</em></p>",
             "button_label": "",
-            "button_link": "shopify://collections/bienestar-suplementos-y-vitaminas"
+            "button_link": "shopify://collections/salud-belleza-y-bienestar"
           }
         }
       },
