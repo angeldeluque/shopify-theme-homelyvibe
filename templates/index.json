@@ -33,8 +33,8 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/PRECIOS_INCREIBLES_2.png",
-        "height": "adapt",
+        "image": "shopify://shop_images/0001-5496003559676263585.png",
+        "height": "medium",
         "desktop_image_width": "medium",
         "layout": "text_first",
         "image_behavior": "ambient",
@@ -204,60 +204,6 @@
         "include_margins": true
       }
     },
-    "multicolumn_CwDwbe": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_jkHkQn": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>Tecnología inteligente</strong>",
-            "text": "<p>Creamos experiencias que facilitan tu día. Gadgets y soluciones diseñados para sumar comodidad, eficiencia y bienestar. <em>Más smart, más tú.</em></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_YJTUAH": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>Bienestar en armonía</strong>",
-            "text": "<p>Creemos que el bienestar empieza en casa. Productos que aportan equilibrio a tu rutina, tu energía y tu estilo de vida. <em>Más bienestar, más vibra.</em></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_fgNRHc": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>Tu hogar, tu vibra</strong>",
-            "text": "<p>Tu espacio debe moverse contigo. Diseñamos soluciones que se adaptan a tu esencia para que vivas conectado con lo que te importa. <em>Más hogar, más tú.</em></p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_jkHkQn",
-        "column_YJTUAH",
-        "column_fgNRHc"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "Vibra con nosotros",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
@@ -365,7 +311,6 @@
     "collection_list_w9DBjw",
     "multirow_zCwUHR",
     "1764027681c5dd797c",
-    "multicolumn_CwDwbe",
     "featured-collection",
     "collapsible_content_pKkNw8"
   ]
