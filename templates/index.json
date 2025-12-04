@@ -15,14 +15,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Conecta contigo y tu entorno, crea tu realidad y descúbre tu vibe</strong>",
+            "heading": "<strong>¡APROVECHA NUESTROS DESCUENTOS DE LANZAMIENTO!</strong>",
             "heading_size": "h2"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Todos los productos",
+            "button_label": "Ver productos",
             "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
@@ -33,7 +33,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/1905.i301.001.P.m004.c20.Portable_electronics_isometric_icons.jpg",
+        "image": "shopify://shop_images/PRECIOS_INCREIBLES_2.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
