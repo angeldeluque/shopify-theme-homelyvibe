@@ -17,14 +17,7 @@
         "announcement_aGzw4d": {
           "type": "announcement",
           "settings": {
-            "text": "¡Envíos en Colombia en max 24 horas!",
-            "link": ""
-          }
-        },
-        "announcement_fntp3r": {
-          "type": "announcement",
-          "settings": {
-            "text": "Contraentrega en productos seleccionados.",
+            "text": "¡Envíos a toda Colombia!",
             "link": ""
           }
         },
@@ -52,7 +45,6 @@
       },
       "block_order": [
         "announcement_aGzw4d",
-        "announcement_fntp3r",
         "announcement_KfNRWp",
         "announcement_3wkHV8",
         "announcement-bar-0"
