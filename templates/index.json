@@ -15,14 +15,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>¡APROVECHA NUESTROS DESCUENTOS DE LANZAMIENTO!</strong>",
+            "heading": "<strong>¡APROVECHA NUESTROS DESCUENTOS DE NAVIDAD! </strong>",
             "heading_size": "h2"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Ver productos",
+            "button_label": "Aqui tienes tu regalo perfecto",
             "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
@@ -33,11 +33,11 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/0001-5496003559676263585.png",
-        "height": "medium",
+        "image": "shopify://shop_images/Gemini_Generated_Image_2nz5a62nz5a62nz5.png",
+        "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
-        "image_behavior": "ambient",
+        "image_behavior": "zoom-in",
         "content_layout": "overlap",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
