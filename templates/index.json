@@ -22,7 +22,7 @@
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Aqui tienes tu regalo perfecto",
+            "button_label": "¡REGALOS PERFECTOS AQUI!",
             "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
