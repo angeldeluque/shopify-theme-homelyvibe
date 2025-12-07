@@ -23,7 +23,7 @@
           "type": "button",
           "settings": {
             "button_label": "¡REGALOS PERFECTOS AQUI!",
-            "button_link": "shopify://collections/all",
+            "button_link": "shopify://collections/regalos-perfectos-a-precios-perfectos",
             "button_style_secondary": false
           }
         }
