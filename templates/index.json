@@ -105,50 +105,79 @@
         "padding_bottom": 20
       }
     },
-    "collection_list_w9DBjw": {
+    "collection_list_dLmBed": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_7KGyBy": {
+        "featured_collection_hYMLcA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "suplementos-y-vitaminas"
+          }
+        },
+        "featured_collection_ranGW9": {
           "type": "featured_collection",
           "settings": {
             "collection": "organizacion-y-hogar"
           }
         },
-        "featured_collection_GX9m3J": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "salud-belleza-y-bienestar"
-          }
-        },
-        "featured_collection_VFQRMV": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "mascotas-y-mas"
-          }
-        },
-        "featured_collection_Ym7pU6": {
+        "featured_collection_GFg6Yg": {
           "type": "featured_collection",
           "settings": {
             "collection": "tecnologia-accesorios-y-lifestyle"
           }
+        },
+        "featured_collection_ANtaXG": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "salud-belleza-y-bienestar"
+          }
         }
       },
       "block_order": [
-        "featured_collection_7KGyBy",
-        "featured_collection_GX9m3J",
-        "featured_collection_VFQRMV",
-        "featured_collection_Ym7pU6"
+        "featured_collection_hYMLcA",
+        "featured_collection_ranGW9",
+        "featured_collection_GFg6Yg",
+        "featured_collection_ANtaXG"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "Categorías",
+        "title": "CATEGORIAS PRINCIPALES",
         "heading_size": "h1",
         "image_ratio": "square",
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "color_scheme": "",
         "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_T9NbGV": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "regalos-perfectos-a-precios-perfectos",
+        "products_to_show": 4,
+        "title": "¡OFERTAS INCREIBLES!🎁👇",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
         "columns_mobile": "2",
-        "swipe_on_mobile": true,
+        "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -323,7 +352,8 @@
     "image-with-text",
     "slideshow_dnEVDm",
     "rich_text_jBRf3N",
-    "collection_list_w9DBjw",
+    "collection_list_dLmBed",
+    "featured_collection_T9NbGV",
     "multirow_zCwUHR",
     "1764027681c5dd797c",
     "featured-collection",
