@@ -146,16 +146,26 @@
     },
     "content_for_index": [],
     "blocks": {
+      "1793219247286972479": {
+        "type": "shopify://apps/searchpie-seo-speed/blocks/sb-snippets/29f6c508-9bb9-4e93-9f98-b637b62f3552",
+        "disabled": false,
+        "settings": {}
+      },
+      "9680287006772215557": {
+        "type": "shopify://apps/searchpie-seo-speed/blocks/sb-local-seo/29f6c508-9bb9-4e93-9f98-b637b62f3552",
+        "disabled": false,
+        "settings": {}
+      },
       "14060646107696862457": {
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       },
       "15683396631634586217": {
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
         "settings": {
-          "button_color": "#fdfbf7",
+          "button_color": "#6ecf8d",
           "secondary_color": "#000000",
           "ternary_color": "#6a6a6a",
           "button_icon": "chat_bubble",
