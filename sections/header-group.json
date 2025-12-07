@@ -14,36 +14,44 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_BN3brW": {
+          "type": "announcement",
+          "settings": {
+            "text": "¡REGALOS PERFECTOS CON EL 30% DE DESCUENTO!",
+            "link": ""
+          }
+        },
         "announcement_aGzw4d": {
           "type": "announcement",
           "settings": {
-            "text": "¡Envíos a toda Colombia!",
+            "text": "¡ENVIOS A TODA COLOMBIA!",
             "link": ""
           }
         },
         "announcement_KfNRWp": {
           "type": "announcement",
           "settings": {
-            "text": "Pago seguro con Mercado Pago.",
+            "text": "¡PAGA A CUOTAS CON MERCADO PAGO!",
             "link": ""
           }
         },
         "announcement_3wkHV8": {
           "type": "announcement",
           "settings": {
-            "text": "¡Entra en el vibe, no te lo pierdas!",
+            "text": "¡ENTRA EN EL VIBE, NO TE LO PIERDAS!",
             "link": ""
           }
         },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Mas bienestar, más smart, más tu.",
+            "text": "MÁS BIENESTAR, MÁS TU VIBE, MÁS TU.",
             "link": ""
           }
         }
       },
       "block_order": [
+        "announcement_BN3brW",
         "announcement_aGzw4d",
         "announcement_KfNRWp",
         "announcement_3wkHV8",
