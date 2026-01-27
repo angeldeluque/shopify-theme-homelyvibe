@@ -15,15 +15,15 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>¿ESTAS PENSANDO QUE REGALAR?¡APROVECHA NUESTROS DESCUENTOS DE NAVIDAD! </strong>",
+            "heading": "<strong>Siéntete más tu y piensa en tu bienestar con productos seleccionados para ti.</strong>",
             "heading_size": "h2"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "¡REGALOS PERFECTOS AQUI!",
-            "button_link": "shopify://collections/regalos-perfectos-a-precios-perfectos",
+            "button_label": "¡OBTEN HASTA UN 30% DE DESCUENTO!",
+            "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
         }
