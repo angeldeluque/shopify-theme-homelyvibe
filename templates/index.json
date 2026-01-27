@@ -22,7 +22,7 @@
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "¡OBTEN HASTA UN 30% DE DESCUENTO!",
+            "button_label": "¡OBTEN HASTA 30% DE DESCUENTO!",
             "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
