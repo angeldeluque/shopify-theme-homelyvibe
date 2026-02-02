@@ -142,12 +142,6 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
-        },
-        "share_wXQyyA": {
-          "type": "share",
-          "settings": {
-            "share_label": "Compartir"
-          }
         }
       },
       "block_order": [
@@ -156,8 +150,7 @@
         "price_LyB6fQ",
         "variant_picker_DBNd6k",
         "quantity_selector_3WfjtN",
-        "buy_buttons_9fiK6K",
-        "share_wXQyyA"
+        "buy_buttons_9fiK6K"
       ],
       "name": "t:sections.featured-product.presets.name",
       "settings": {
@@ -166,7 +159,7 @@
         "secondary_background": false,
         "media_size": "small",
         "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "media_fit": "cover",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
@@ -207,28 +200,6 @@
     "multirow_zCwUHR": {
       "type": "multirow",
       "blocks": {
-        "row_K9NgD9": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/m502t0010_06jun22_smart_watch_02.png",
-            "caption": "simplifica tu rutina",
-            "heading": "Tecnología, Gadgets & Lifestyle",
-            "text": "<p>Simplifica tu día con productos inteligentes, accesorios funcionales y soluciones que aportan comodidad y diseño. <em>Smart living para tu rutina diaria.</em></p>",
-            "button_label": "",
-            "button_link": "shopify://collections/tecnologia-accesorios-y-lifestyle"
-          }
-        },
-        "row_TMBVx6": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/lindo-mascota-collage-aislado.jpg",
-            "caption": "Bienestar tambien para ellos",
-            "heading": "Mascotas & Más",
-            "text": "<p>Porque ellos también merecen bienestar. Encuentra productos pensados para su comodidad, salud y entretenimiento. <em>Tu hogar vibra mejor cuando ellos están felices.</em></p>",
-            "button_label": "",
-            "button_link": "shopify://collections/mascotas-y-mas"
-          }
-        },
         "row_KhBknB": {
           "type": "row",
           "settings": {
@@ -242,8 +213,6 @@
         }
       },
       "block_order": [
-        "row_K9NgD9",
-        "row_TMBVx6",
         "row_KhBknB"
       ],
       "name": "t:sections.multirow.presets.name",
@@ -267,34 +236,6 @@
       "type": "apps",
       "settings": {
         "include_margins": true
-      }
-    },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "all",
-        "products_to_show": 5,
-        "title": "Productos destacados",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 5,
-        "enable_desktop_slider": true,
-        "full_width": true,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-2",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 56,
-        "padding_bottom": 68
       }
     },
     "collapsible_content_pKkNw8": {
@@ -378,7 +319,6 @@
     "featured_collection_T9NbGV",
     "multirow_zCwUHR",
     "1764027681c5dd797c",
-    "featured-collection",
     "collapsible_content_pKkNw8"
   ]
 }
