@@ -105,50 +105,72 @@
         "padding_bottom": 20
       }
     },
-    "collection_list_dLmBed": {
-      "type": "collection-list",
+    "featured_product_qDiAdD": {
+      "type": "featured-product",
       "blocks": {
-        "featured_collection_hYMLcA": {
-          "type": "featured_collection",
+        "text_4CACFE": {
+          "type": "text",
           "settings": {
-            "collection": "suplementos-y-vitaminas"
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
           }
         },
-        "featured_collection_ranGW9": {
-          "type": "featured_collection",
+        "title_rPBfXi": {
+          "type": "title",
           "settings": {
-            "collection": "organizacion-y-hogar"
+            "heading_size": "h1"
           }
         },
-        "featured_collection_GFg6Yg": {
-          "type": "featured_collection",
+        "price_LyB6fQ": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_DBNd6k": {
+          "type": "variant_picker",
           "settings": {
-            "collection": "tecnologia-accesorios-y-lifestyle"
+            "picker_type": "button",
+            "swatch_shape": "circle"
           }
         },
-        "featured_collection_ANtaXG": {
-          "type": "featured_collection",
+        "quantity_selector_3WfjtN": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_9fiK6K": {
+          "type": "buy_buttons",
           "settings": {
-            "collection": "salud-belleza-y-bienestar"
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_wXQyyA": {
+          "type": "share",
+          "settings": {
+            "share_label": "Compartir"
           }
         }
       },
       "block_order": [
-        "featured_collection_hYMLcA",
-        "featured_collection_ranGW9",
-        "featured_collection_GFg6Yg",
-        "featured_collection_ANtaXG"
+        "text_4CACFE",
+        "title_rPBfXi",
+        "price_LyB6fQ",
+        "variant_picker_DBNd6k",
+        "quantity_selector_3WfjtN",
+        "buy_buttons_9fiK6K",
+        "share_wXQyyA"
       ],
-      "name": "t:sections.collection-list.presets.name",
+      "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "title": "CATEGORIAS PRINCIPALES",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 4,
+        "product": "ashwagandha-ksm-66-5500-mg-softgels-x-2",
         "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -352,7 +374,7 @@
     "image-with-text",
     "slideshow_dnEVDm",
     "rich_text_jBRf3N",
-    "collection_list_dLmBed",
+    "featured_product_qDiAdD",
     "featured_collection_T9NbGV",
     "multirow_zCwUHR",
     "1764027681c5dd797c",
