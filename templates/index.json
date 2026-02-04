@@ -268,15 +268,6 @@
             "page": ""
           }
         },
-        "collapsible_row_F4HV4a": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿Puedo pagar a cuotas?",
-            "icon": "chat_bubble",
-            "row_content": "<p>¡Claro!, aceptamos todo tipo de tarjetas de credito.</p>",
-            "page": ""
-          }
-        },
         "collapsible_row_Ur6DiQ": {
           "type": "collapsible_row",
           "settings": {
@@ -291,7 +282,6 @@
         "collapsible_row_jMTfQh",
         "collapsible_row_tD6GAk",
         "collapsible_row_BjQE7w",
-        "collapsible_row_F4HV4a",
         "collapsible_row_Ur6DiQ"
       ],
       "name": "t:sections.collapsible_content.presets.name",
