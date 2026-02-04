@@ -255,7 +255,7 @@
           "settings": {
             "heading": "¿Qué métodos de pago aceptan?",
             "icon": "chat_bubble",
-            "row_content": "<p>Para garantizar pagos 100% seguros usamos los portales de Mercado Pago y ePayco, aceptando todos los metodos de pago (Visa, Mastercard, PSE, efecty)<br/>Además, tenemos disponible pago contraentrega.</p>",
+            "row_content": "<p>Para garantizar pagos 100% seguros usamos Mercado Pago aceptando todos los metodos de pago (Visa, Mastercard, PSE, efecty)<br/>Además, tenemos disponible pago contraentrega.</p>",
             "page": ""
           }
         },
