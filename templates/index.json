@@ -246,7 +246,7 @@
           "settings": {
             "heading": "¿En cuánto tiempo llega mi pedido?",
             "icon": "chat_bubble",
-            "row_content": "<p>El envió se hará en las 24 horas posteriores a confirmar el pago.</p>",
+            "row_content": "<p>El envió se hará en las 24 horas posteriores a confirmar el pago. Los tiempos de entrega varían según la ubicación, en promedio de 2 a 3 días hábiles.</p>",
             "page": ""
           }
         },
