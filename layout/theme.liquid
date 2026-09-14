@@ -368,7 +368,7 @@
       window.theme = window.theme || {};
       window.theme.locale = '{{ request.locale.iso_code }}';
       window.theme.customerId = {{ customer.id | json }};
-      window.theme.customerLoggedIn = {{ customer != nil | json }};
+      window.theme.customerLoggedIn = {{ customer | json }};
       window.theme.strings = Object.assign({}, window.theme.strings || {}, {
         openWishlist: `{{ 'general.wishlist.open' | t }}`,
         closeWishlist: `{{ 'general.wishlist.close' | t }}`,
@@ -423,3 +423,13 @@
 
   </body>
 </html>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ customer != nil | json }}"
+  to: "{{ customer | json }}"
+  position: 21523..21544
+{% endcomment %}
